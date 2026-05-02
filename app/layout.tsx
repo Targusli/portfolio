@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Space_Mono, Inter } from 'next/font/google'
 import './globals.css'
+import ClientProviders from '@/components/ClientProviders'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
 
 const spaceMono = Space_Mono({
   weight: ['400', '700'],
@@ -33,12 +33,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         />
       </head>
-      <body className="bg-background text-on-background min-h-screen flex flex-col font-body-md antialiased">
-        <Navbar />
-        <div className="flex-grow flex flex-col">
+      <body className="bg-[#080808] text-on-background min-h-screen antialiased">
+        <ClientProviders>
+          <Navbar />
           {children}
-        </div>
-        <Footer />
+        </ClientProviders>
       </body>
     </html>
   )
