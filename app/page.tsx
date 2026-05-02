@@ -3,14 +3,14 @@
 import { useState } from 'react'
 import { useModal } from '@/lib/modal'
 import { useLang } from '@/lib/i18n'
-import { projects, hobbies } from '@/lib/data'
+import { projects, aboutItems } from '@/lib/data'
 import NodeGraph from '@/components/NodeGraph'
 import Modal from '@/components/Modal'
 import LoadingScreen from '@/components/LoadingScreen'
 import ExperienceSection from '@/components/sections/ExperienceSection'
 import SkillsSection from '@/components/sections/SkillsSection'
 import ProjectsSection from '@/components/sections/ProjectsSection'
-import HobbiesSection from '@/components/sections/HobbiesSection'
+import AboutSection from '@/components/sections/AboutSection'
 import ContactSection from '@/components/sections/ContactSection'
 
 export default function Home() {
@@ -30,11 +30,11 @@ export default function Home() {
       const id = activeModal.replace('project-', '')
       return projects.find((p) => p.id === id)?.title ?? ''
     }
-    if (activeModal === 'hobbies') return t.hobbies.title
-    if (activeModal.startsWith('hobby-')) {
-      const id = activeModal.replace('hobby-', '')
-      const h = hobbies.find((h) => h.id === id)
-      return h ? (lang === 'de' ? h.title.de : h.title.en) : ''
+    if (activeModal === 'about') return t.about.title
+    if (activeModal.startsWith('about-')) {
+      const id = activeModal.replace('about-', '')
+      const a = aboutItems.find((a) => a.id === id)
+      return a ? (lang === 'de' ? a.title.de : a.title.en) : ''
     }
     if (activeModal === 'contact') return t.contact.title
     return ''
@@ -45,7 +45,7 @@ export default function Home() {
     if (activeModal === 'experience') return <ExperienceSection />
     if (activeModal.startsWith('skills')) return <SkillsSection />
     if (activeModal.startsWith('project')) return <ProjectsSection />
-    if (activeModal.startsWith('hobby')) return <HobbiesSection />
+    if (activeModal === 'about' || activeModal.startsWith('about-')) return <AboutSection />
     if (activeModal === 'contact') return <ContactSection />
     return null
   }

@@ -154,35 +154,77 @@ function SkillsView() {
 // ─── Overview ────────────────────────────────────────────────────────────────
 
 function OverviewView() {
-  const { t } = useLang()
+  const { lang, t } = useLang()
   const { pushModal } = useModal()
 
   const cards = [
-    { id: 'skills-languages', label: t.skills.languages, count: languages.length, desc: t.skills.languagesIntro },
-    { id: 'skills-tools', label: t.skills.tools, count: tools.length, desc: t.skills.toolsIntro },
-    { id: 'skills-skills', label: t.skills.skills, count: skills.length, desc: t.skills.skillsIntro },
+    {
+      id: 'skills-languages',
+      label: t.skills.languages,
+      count: languages.length,
+      desc: t.skills.languagesIntro,
+      preview: languages.slice(0, 3).map((l) => `${l.flag} ${l.name}`),
+    },
+    {
+      id: 'skills-tools',
+      label: t.skills.tools,
+      count: tools.length,
+      desc: t.skills.toolsIntro,
+      preview: tools.filter((t) => t.size === 3).slice(0, 4).map((t) => t.name),
+    },
+    {
+      id: 'skills-skills',
+      label: t.skills.skills,
+      count: skills.length,
+      desc: t.skills.skillsIntro,
+      preview: skills.filter((s) => s.size === 3).slice(0, 4).map((s) => s.name),
+    },
   ]
+
+  const moreLabel = lang === 'de' ? 'Mehr Infos' : 'More information'
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
       <p className="font-mono text-sm text-on-surface-variant mb-8">{t.skills.subtitle}</p>
       <div className="grid gap-4">
         {cards.map((card) => (
-          <button
+          <div
             key={card.id}
-            onClick={() => pushModal(card.id)}
-            className="text-left border border-[#1e1e1e] rounded-sm p-5 hover:border-primary/30 hover:bg-surface-container transition-all group"
+            className="border border-[#1e1e1e] rounded-sm p-5 hover:border-primary/30 hover:bg-surface-container transition-all group"
           >
-            <div className="flex items-center justify-between mb-2">
+            <div className="flex items-center justify-between mb-3">
               <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors">
                 {card.label}
               </span>
-              <span className="font-mono text-xs text-outline">
-                {card.count}
-              </span>
+              <span className="font-mono text-xs text-outline">{card.count}</span>
             </div>
-            <p className="font-mono text-xs text-outline leading-relaxed">{card.desc}</p>
-          </button>
+            <p className="font-mono text-xs text-outline leading-relaxed mb-4">{card.desc}</p>
+
+            {/* Preview chips */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {card.preview.map((item) => (
+                <span
+                  key={item}
+                  className="font-mono text-[11px] px-2.5 py-1 border border-[#252525] text-on-surface-variant bg-[#111316] rounded-sm"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            {/* More information — bottom right */}
+            <div className="flex justify-end">
+              <button
+                onClick={() => pushModal(card.id)}
+                className="font-mono text-xs text-primary/60 hover:text-primary transition-colors flex items-center gap-1"
+              >
+                {moreLabel}
+                <span className="material-symbols-outlined" style={{ fontSize: 14 }}>
+                  arrow_forward
+                </span>
+              </button>
+            </div>
+          </div>
         ))}
       </div>
     </div>

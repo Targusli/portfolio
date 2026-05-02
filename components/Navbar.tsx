@@ -13,7 +13,7 @@ export default function Navbar() {
     { id: 'experience', label: t.nav.experience },
     { id: 'skills', label: t.nav.skills },
     { id: 'projects', label: t.nav.projects },
-    { id: 'hobbies', label: t.nav.hobbies },
+    { id: 'about', label: t.nav.about },
     { id: 'contact', label: t.nav.contact },
   ]
 
@@ -32,7 +32,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => {}}
-          className="font-mono text-sm font-bold tracking-widest text-on-surface hover:text-primary transition-colors"
+          className="font-mono text-sm font-bold tracking-widest text-white hover:text-primary transition-colors"
         >
           Noah Zuppiger
         </button>
@@ -43,7 +43,7 @@ export default function Navbar() {
             <li key={id}>
               <button
                 onClick={() => handleNavClick(id)}
-                className="font-mono text-xs text-outline hover:text-on-surface transition-colors"
+                className="font-mono text-sm font-semibold text-white/70 hover:text-white transition-colors tracking-wide"
               >
                 {label}
               </button>

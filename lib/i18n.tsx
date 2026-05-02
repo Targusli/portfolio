@@ -20,7 +20,7 @@ const translations = {
       experience: 'Experience',
       skills: 'Skills & Tools',
       projects: 'Projects',
-      hobbies: 'Hobbies',
+      about: 'About Me',
       contact: 'Contact',
     },
     experience: {
@@ -56,11 +56,14 @@ const translations = {
       pending: 'In Progress',
       viewProject: 'View Project',
     },
-    hobbies: {
-      title: 'Hobbies',
-      subtitle: 'What I enjoy outside of work',
+    about: {
+      title: 'About Me',
+      subtitle: 'Interests, story and goals',
+      interests: 'Interests',
+      story: 'Story',
+      goals: 'Goals',
       back: '← Back',
-      viewMore: 'Explore',
+      viewMore: 'Read more',
     },
     contact: {
       title: 'Contact',
@@ -96,7 +99,7 @@ const translations = {
       experience: 'Berufserfahrung',
       skills: 'Skills & Tools',
       projects: 'Arbeiten',
-      hobbies: 'Hobbies',
+      about: 'Über mich',
       contact: 'Kontakt',
     },
     experience: {
@@ -132,11 +135,14 @@ const translations = {
       pending: 'In Arbeit',
       viewProject: 'Projekt ansehen',
     },
-    hobbies: {
-      title: 'Hobbies',
-      subtitle: 'Was ich ausserhalb der Arbeit mache',
+    about: {
+      title: 'Über mich',
+      subtitle: 'Interessen, Geschichte und Ziele',
+      interests: 'Interessen',
+      story: 'Story',
+      goals: 'Ziele',
       back: '← Zurück',
-      viewMore: 'Mehr erfahren',
+      viewMore: 'Mehr lesen',
     },
     contact: {
       title: 'Kontakt',
