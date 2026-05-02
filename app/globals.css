@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  ::selection {
+    background-color: #5f93d6;
+    color: #002a51;
+  }
+}
+
+@layer utilities {
+  .star-field {
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, white 100%, transparent),
+      radial-gradient(1px 1px at 30% 40%, white 100%, transparent),
+      radial-gradient(1px 1px at 50% 10%, white 100%, transparent),
+      radial-gradient(1px 1px at 70% 60%, white 100%, transparent),
+      radial-gradient(1px 1px at 90% 30%, white 100%, transparent),
+      radial-gradient(1px 1px at 20% 80%, white 100%, transparent),
+      radial-gradient(1px 1px at 60% 90%, white 100%, transparent),
+      radial-gradient(1px 1px at 80% 80%, white 100%, transparent),
+      radial-gradient(1px 1px at 40% 70%, white 100%, transparent),
+      radial-gradient(1px 1px at 15% 55%, white 100%, transparent),
+      radial-gradient(1px 1px at 85% 15%, white 100%, transparent),
+      radial-gradient(1px 1px at 55% 45%, white 100%, transparent);
+    background-size: 200px 200px;
+    opacity: 0.15;
+  }
+
+  .node-glow {
+    box-shadow: 0 0 20px 5px rgba(27, 58, 107, 0.4);
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, #1e1e1e 1px, transparent 1px),
+      linear-gradient(to bottom, #1e1e1e 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .border-technical {
+    border: 1px solid #1e1e1e;
+  }
+
+  .card-accent {
+    border-left: 2px solid #1b3a6b;
+  }
+}
