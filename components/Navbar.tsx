@@ -9,12 +9,13 @@ export default function Navbar() {
   const { lang, setLang, t } = useLang()
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // Order: About Me, Experience, Skills & Tools, Projects, Contact
   const navItems = [
+    { id: 'about',      label: t.nav.about },
     { id: 'experience', label: t.nav.experience },
-    { id: 'skills', label: t.nav.skills },
-    { id: 'projects', label: t.nav.projects },
-    { id: 'about', label: t.nav.about },
-    { id: 'contact', label: t.nav.contact },
+    { id: 'skills',     label: t.nav.skills },
+    { id: 'projects',   label: t.nav.projects },
+    { id: 'contact',    label: t.nav.contact },
   ]
 
   function handleNavClick(id: string) {
@@ -22,23 +23,19 @@ export default function Navbar() {
     setMenuOpen(false)
   }
 
-  function toggleLang() {
-    setLang(lang === 'en' ? 'de' : 'en')
-  }
-
   return (
     <nav className="fixed top-0 left-0 right-0 z-30 h-14 bg-[#080808]/90 backdrop-blur-sm border-b border-[#1e1e1e]">
-      <div className="flex items-center justify-between h-full px-6 md:px-10">
-        {/* Logo */}
+      <div className="relative flex items-center justify-between h-full px-6 md:px-10">
+        {/* Logo — left */}
         <button
           onClick={() => {}}
-          className="font-mono text-sm font-bold tracking-widest text-white hover:text-primary transition-colors"
+          className="font-mono text-sm font-bold tracking-widest text-white hover:text-primary transition-colors relative z-10"
         >
           Noah Zuppiger
         </button>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-7">
+        {/* Desktop nav — absolutely centered, ignoring logo */}
+        <ul className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
           {navItems.map(({ id, label }) => (
             <li key={id}>
               <button
@@ -51,10 +48,10 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Lang toggle + mobile menu */}
-        <div className="flex items-center gap-4">
+        {/* Right side — lang toggle + mobile hamburger */}
+        <div className="flex items-center gap-4 relative z-10">
           <button
-            onClick={toggleLang}
+            onClick={() => lang === 'en' ? setLang('de') : setLang('en')}
             className="font-mono text-xs text-outline hover:text-primary transition-colors tracking-widest"
           >
             {lang === 'en' ? 'DE' : 'EN'}
@@ -79,7 +76,7 @@ export default function Navbar() {
             <button
               key={id}
               onClick={() => handleNavClick(id)}
-              className="text-left font-mono text-sm text-outline hover:text-on-surface transition-colors"
+              className="text-left font-mono text-sm text-white/70 hover:text-white transition-colors"
             >
               {label}
             </button>

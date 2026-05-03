@@ -7,6 +7,7 @@ interface ModalContextType {
   activeModal: string | null
   openModal: (id: string) => void
   pushModal: (id: string) => void
+  replaceStack: (ids: string[]) => void
   closeModal: () => void
   popModal: () => void
 }
@@ -16,6 +17,7 @@ const ModalContext = createContext<ModalContextType>({
   activeModal: null,
   openModal: () => {},
   pushModal: () => {},
+  replaceStack: () => {},
   closeModal: () => {},
   popModal: () => {},
 })
@@ -25,6 +27,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
 
   const openModal = useCallback((id: string) => setModalStack([id]), [])
   const pushModal = useCallback((id: string) => setModalStack((s) => [...s, id]), [])
+  const replaceStack = useCallback((ids: string[]) => setModalStack(ids), [])
   const closeModal = useCallback(() => setModalStack([]), [])
   const popModal = useCallback(() => setModalStack((s) => s.slice(0, -1)), [])
 
@@ -35,6 +38,7 @@ export function ModalProvider({ children }: { children: React.ReactNode }) {
         activeModal: modalStack[modalStack.length - 1] ?? null,
         openModal,
         pushModal,
+        replaceStack,
         closeModal,
         popModal,
       }}

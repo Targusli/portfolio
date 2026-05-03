@@ -6,12 +6,22 @@ import { projects } from '@/lib/data'
 
 function ProjectDetail({ projectId }: { projectId: string }) {
   const { lang, t } = useLang()
+  const { popModal } = useModal()
   const project = projects.find((p) => p.id === projectId)
   if (!project) return null
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
-      <div className="flex items-center gap-3 mb-6">
+      {/* Back to overview */}
+      <button
+        onClick={popModal}
+        className="font-mono text-xs text-outline hover:text-primary transition-colors mb-6 flex items-center gap-1"
+      >
+        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_back</span>
+        {lang === 'de' ? 'Zurück zu den Arbeiten' : 'Back to Projects'}
+      </button>
+
+      <div className="flex items-center gap-3 mb-4">
         <span className="font-mono text-xs text-outline">{project.index}</span>
         <span className="font-mono text-xs px-2 py-0.5 border border-[#2a2a2a] text-on-surface-variant rounded-sm">
           {lang === 'de' ? project.category.de : project.category.en}
@@ -31,10 +41,7 @@ function ProjectDetail({ projectId }: { projectId: string }) {
 
       <div className="flex flex-wrap gap-2 mb-8">
         {project.tags.map((tag) => (
-          <span
-            key={tag}
-            className="font-mono text-xs px-3 py-1 border border-[#2a2a2a] text-outline rounded-sm"
-          >
+          <span key={tag} className="font-mono text-xs px-3 py-1 border border-[#2a2a2a] text-outline rounded-sm">
             {tag}
           </span>
         ))}
@@ -48,9 +55,7 @@ function ProjectDetail({ projectId }: { projectId: string }) {
           className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors border border-primary/30 hover:border-primary/60 px-4 py-2 rounded-sm"
         >
           {t.projects.viewProject}
-          <span className="material-symbols-outlined" style={{ fontSize: 16 }}>
-            arrow_outward
-          </span>
+          <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_outward</span>
         </a>
       )}
     </div>
@@ -59,28 +64,26 @@ function ProjectDetail({ projectId }: { projectId: string }) {
 
 function OverviewView() {
   const { lang, t } = useLang()
-  const { openModal } = useModal()
+  const { pushModal } = useModal()
+  const moreLabel = lang === 'de' ? 'Mehr Infos' : 'More information'
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
       <p className="font-mono text-sm text-on-surface-variant mb-8">{t.projects.subtitle}</p>
       <div className="grid gap-4">
         {projects.map((project) => (
-          <button
+          <div
             key={project.id}
-            onClick={() => openModal(`project-${project.id}`)}
-            className={`text-left border rounded-sm p-5 transition-all group ${
+            className={`border rounded-sm p-5 transition-all group ${
               project.pending
-                ? 'border-[#1e1e1e] opacity-60 cursor-pointer hover:opacity-80'
+                ? 'border-[#1e1e1e] opacity-70'
                 : 'border-[#1e1e1e] hover:border-primary/30 hover:bg-surface-container'
             }`}
           >
             <div className="flex items-start justify-between gap-4 mb-3">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-outline">{project.index}</span>
-                <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors">
-                  {project.title}
-                </span>
+                <span className="font-mono text-sm text-on-surface">{project.title}</span>
               </div>
               <div className="flex gap-2 shrink-0">
                 <span className="font-mono text-[10px] px-2 py-0.5 border border-[#2a2a2a] text-outline rounded-sm">
@@ -93,17 +96,28 @@ function OverviewView() {
                 )}
               </div>
             </div>
-            <p className="font-mono text-xs text-outline leading-relaxed line-clamp-2">
+
+            <p className="font-mono text-xs text-outline leading-relaxed line-clamp-2 mb-3">
               {lang === 'de' ? project.description.de : project.description.en}
             </p>
-            <div className="flex flex-wrap gap-1.5 mt-3">
+
+            <div className="flex flex-wrap gap-1.5 mb-4">
               {project.tags.map((tag) => (
-                <span key={tag} className="font-mono text-[10px] text-outline/60">
-                  #{tag}
-                </span>
+                <span key={tag} className="font-mono text-[10px] text-outline/60">#{tag}</span>
               ))}
             </div>
-          </button>
+
+            {/* More information button */}
+            <div className="flex justify-end">
+              <button
+                onClick={() => pushModal(`project-${project.id}`)}
+                className="font-mono text-xs text-primary/60 hover:text-primary transition-colors flex items-center gap-1"
+              >
+                {moreLabel}
+                <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_forward</span>
+              </button>
+            </div>
+          </div>
         ))}
       </div>
     </div>
