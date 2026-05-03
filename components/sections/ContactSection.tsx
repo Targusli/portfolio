@@ -13,6 +13,11 @@ export default function ContactSection() {
   return (
     <div className="px-6 md:px-10 py-8 max-w-xl mx-auto w-full">
 
+      {/* Title */}
+      <h2 className="font-mono text-2xl font-bold text-white mb-3">
+        {lang === 'de' ? 'Kontakt' : 'Contact'}
+      </h2>
+
       {/* Tagline */}
       <p className="font-mono text-sm text-on-surface-variant mb-10">
         {lang === 'de' ? 'Offen für Möglichkeiten.' : 'Open to opportunities.'}

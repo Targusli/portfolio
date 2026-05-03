@@ -69,6 +69,7 @@ function OverviewView() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
+      <h2 className="font-mono text-2xl font-bold text-white mb-3">{t.projects.title}</h2>
       <p className="font-mono text-sm text-on-surface-variant mb-8">{t.projects.subtitle}</p>
       <div className="grid gap-4">
         {projects.map((project) => (

@@ -23,7 +23,7 @@ function AboutDetail({ itemId }: { itemId: string }) {
         {lang === 'de' ? 'Zurück' : 'Back'}
       </button>
 
-      <h2 className="font-mono text-xl font-bold text-white mb-2">
+      <h2 className="font-mono text-2xl font-bold text-white mb-2">
         {lang === 'de' ? item.title.de : item.title.en}
       </h2>
       <p className="font-mono text-sm text-outline mb-8">
@@ -61,6 +61,11 @@ function OverviewView() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
+
+      {/* ── Title ── */}
+      <h2 className="font-mono text-2xl font-bold text-white mb-8">
+        {lang === 'de' ? 'Über mich' : 'About Me'}
+      </h2>
 
       {/* ── Photo + name header ── */}
       <div className="flex flex-col sm:flex-row gap-6 items-start mb-8">

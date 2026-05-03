@@ -18,6 +18,7 @@ export default function ExperienceSection() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
+      <h2 className="font-mono text-2xl font-bold text-white mb-3">{t.experience.title}</h2>
       <p className="font-mono text-sm text-on-surface-variant mb-6">
         {t.experience.subtitle}
       </p>

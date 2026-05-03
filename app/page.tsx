@@ -69,10 +69,9 @@ export default function Home() {
   function getTitle(): string {
     if (!activeModal) return ''
     if (activeModal === 'experience') return t.experience.title
-    if (activeModal === 'skills')     return t.skills.title
+    if (activeModal === 'skills')           return t.skills.title
     if (activeModal === 'skills-languages') return t.skills.languages
     if (activeModal === 'skills-tools')     return t.skills.tools
-    if (activeModal === 'skills-skills')    return t.skills.skills
     if (activeModal === 'projects')   return t.projects.title
     if (activeModal.startsWith('project-')) {
       const id = activeModal.replace('project-', '')

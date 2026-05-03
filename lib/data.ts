@@ -232,15 +232,6 @@ export const aboutItems: AboutItem[] = [
     },
   },
   {
-    id: 'story',
-    title: { en: 'Story', de: 'Story' },
-    subtitle: { en: 'How I got here', de: 'Wie ich hierher gekommen bin' },
-    body: {
-      en: 'Growing up in Switzerland, I was always drawn to both technology and design. After completing my Federal Diploma in IT, I pursued a B.Sc. in Wirtschaftsinformatik, where I discovered the intersection of business thinking and technical execution. From data engineering to IT consulting to systems architecture, each role deepened my understanding of how technology creates real value.',
-      de: 'Aufgewachsen in der Schweiz war ich schon immer von Technologie und Design fasziniert. Nach dem eidgenössischen Diplom Informatik studierte ich B.Sc. Wirtschaftsinformatik, wo ich die Schnittstelle zwischen betriebswirtschaftlichem Denken und technischer Umsetzung entdeckte. Von Data Engineering über IT-Beratung bis Systemarchitektur — jede Rolle vertieft mein Verständnis dafür, wie Technologie echten Mehrwert schafft.',
-    },
-  },
-  {
     id: 'goals',
     title: { en: 'Goals', de: 'Ziele' },
     subtitle: { en: 'Where I am heading', de: 'Wohin ich mich entwickle' },
@@ -248,6 +239,56 @@ export const aboutItems: AboutItem[] = [
       en: 'I want to build digital products that are as technically solid as they are beautifully crafted. My focus is bridging the gap between design and engineering — creating systems that not only work well but feel intuitive to use. Long term, I aim to combine automation, AI, and thoughtful UX into products that genuinely improve how people work.',
       de: 'Ich möchte digitale Produkte entwickeln, die technisch solide und gleichzeitig schön gestaltet sind. Mein Fokus liegt auf der Brücke zwischen Design und Engineering — Systeme schaffen, die gut funktionieren und sich intuitiv anfühlen. Langfristig möchte ich Automatisierung, KI und durchdachte UX in Produkte verbinden, die Arbeitsweisen wirklich verbessern.',
     },
+  },
+]
+
+// ─── Skill Categories ─────────────────────────────────────────────────────────
+
+export interface ToolEntry {
+  name: string
+  note?: { en: string; de: string }
+  description: { en: string; de: string }
+}
+
+export interface SkillCategory {
+  id: string
+  title: { en: string; de: string }
+  tools: ToolEntry[]
+}
+
+export const skillCategories: SkillCategory[] = [
+  {
+    id: 'design',
+    title: { en: 'Design', de: 'Design' },
+    tools: [
+      { name: 'Adobe CC',  description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+      { name: 'Adobe XD',  description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    ],
+  },
+  {
+    id: 'marketing',
+    title: { en: 'Marketing', de: 'Marketing' },
+    tools: [
+      { name: 'LinkedIn', description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    ],
+  },
+  {
+    id: 'automation-it',
+    title: { en: 'Automation & IT', de: 'Automatisierung & IT' },
+    tools: [
+      { name: 'n8n',        description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+      { name: 'VS Code',    description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+      { name: 'HTML / CSS', description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+      { name: 'Python', note: { en: '(currently learning)', de: '(am Lernen)' }, description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    ],
+  },
+  {
+    id: 'other',
+    title: { en: 'Other', de: 'Sonstige' },
+    tools: [
+      { name: 'Stable Diffusion', note: { en: '(Local AI image generation)', de: '(Lokale KI-Bildgenerierung)' }, description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+      { name: 'Diverse LLMs',     description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    ],
   },
 ]
 
