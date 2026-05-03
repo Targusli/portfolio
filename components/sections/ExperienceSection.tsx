@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useLang } from '@/lib/i18n'
 import { useModal } from '@/lib/modal'
 import { timelineItems } from '@/lib/data'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 type Filter = 'all' | 'work' | 'education'
 
@@ -30,6 +31,7 @@ export default function ExperienceSection() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
+      <Breadcrumbs className="mb-6" />
       <h2 className="font-mono text-2xl font-bold text-white mb-3">{t.experience.title}</h2>
       <p className="font-mono text-sm text-on-surface-variant mb-6">
         {t.experience.subtitle}

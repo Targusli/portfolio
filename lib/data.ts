@@ -26,6 +26,7 @@ export interface Language {
   proficiency: number
   cert: string | null
   flag: string
+  type?: 'spoken' | 'programming'
 }
 
 export interface SkillItem {
@@ -109,8 +110,8 @@ export const languages: Language[] = [
   { name: 'English', level: { en: 'Fluent – C1', de: 'Fliessend – C1' }, proficiency: 90, cert: 'Cambridge C1 Advanced', flag: '🇬🇧' },
   { name: 'Français', level: { en: 'Basic – A2', de: 'Grundkenntnisse – A2' }, proficiency: 30, cert: null, flag: '🇫🇷' },
   { name: '日本語',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 10, cert: null, flag: '🇯🇵' },
-  { name: 'Python',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 20, cert: null, flag: 'Py' },
-  { name: 'JavaScript', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 20, cert: null, flag: 'JS' },
+  { name: 'Python',     level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'Py', type: 'programming' },
+  { name: 'JavaScript', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'JS', type: 'programming' },
 ]
 
 export const tools: SkillItem[] = [

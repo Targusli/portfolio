@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useModal } from '@/lib/modal'
 import { useLang } from '@/lib/i18n'
 
@@ -15,6 +15,18 @@ export default function Navbar() {
   const { lang, setLang, t } = useLang()
   const [menuOpen, setMenuOpen]         = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current) }, [])
+
+  function openDrop(id: string) {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null }
+    setOpenDropdown(id)
+  }
+
+  function scheduleDrop() {
+    closeTimer.current = setTimeout(() => { setOpenDropdown(null); closeTimer.current = null }, 200)
+  }
 
   function close() { setMenuOpen(false); setOpenDropdown(null) }
 
@@ -28,8 +40,8 @@ export default function Navbar() {
       { id: 'edu',  label: lang === 'de' ? 'Ausbildung'      : 'Education', action: () => { replaceStack(['experience', 'experience-education']); close() } },
     ],
     skills: [
-      { id: 'languages', label: lang === 'de' ? 'Sprachen'    : 'Languages',    action: () => { replaceStack(['skills', 'skills-languages']); close() } },
-      { id: 'tools',     label: 'Skills & Tools',                                action: () => { replaceStack(['skills', 'skills-tools']); close() } },
+      { id: 'languages', label: lang === 'de' ? 'Sprachen' : 'Languages',   action: () => { replaceStack(['skills', 'skills-languages']); close() } },
+      { id: 'tools',     label: 'Skills & Tools',                            action: () => { replaceStack(['skills', 'skills-tools']); close() } },
     ],
     projects: [
       { id: 'n8n',     label: 'n8n',  action: () => { replaceStack(['projects', 'project-n8n']); close() } },
@@ -52,7 +64,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-30 h-14 bg-[#080808]/90 backdrop-blur-sm border-b border-[#1e1e1e]">
       <div className="relative flex items-center justify-between h-full px-6 md:px-10">
 
-        {/* Logo — left */}
+        {/* Logo */}
         <button
           onClick={() => {}}
           className="font-mono text-sm font-bold tracking-widest text-white hover:text-primary transition-colors relative z-10"
@@ -60,7 +72,7 @@ export default function Navbar() {
           Noah Zuppiger
         </button>
 
-        {/* Desktop nav — absolutely centered */}
+        {/* Desktop nav — centered */}
         <ul className="hidden md:flex items-center gap-7 absolute left-1/2 -translate-x-1/2">
           {navItems.map(({ id, label }) => {
             const subs = subItems[id] ?? []
@@ -68,12 +80,12 @@ export default function Navbar() {
               <li
                 key={id}
                 className="relative"
-                onMouseEnter={() => setOpenDropdown(id)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseEnter={() => openDrop(id)}
+                onMouseLeave={scheduleDrop}
               >
                 <button
                   onClick={() => { openModal(id); close() }}
-                  className="font-mono text-sm font-semibold text-white/70 hover:text-white transition-colors tracking-wide flex items-center gap-0.5"
+                  className="font-mono text-sm font-semibold text-white/70 hover:text-white transition-colors tracking-wide flex items-center gap-0.5 py-2"
                 >
                   {label}
                   {subs.length > 0 && (
@@ -83,9 +95,18 @@ export default function Navbar() {
                   )}
                 </button>
 
+                {/* Invisible bridge over the gap so cursor doesn't leave li */}
+                {openDropdown === id && subs.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 h-2" />
+                )}
+
                 {/* Dropdown */}
                 {openDropdown === id && subs.length > 0 && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 bg-[#0d0d0d] border border-[#2a2a2a] rounded-sm shadow-lg min-w-[168px] overflow-hidden z-50">
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 mt-1.5 bg-[#0d0d0d] border border-[#2a2a2a] rounded-sm shadow-lg min-w-[168px] overflow-hidden z-50"
+                    onMouseEnter={() => openDrop(id)}
+                    onMouseLeave={scheduleDrop}
+                  >
                     {subs.slice(0, 4).map((sub) => (
                       <button
                         key={sub.id}
@@ -102,7 +123,7 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Right side — lang toggle + hamburger */}
+        {/* Right — lang toggle + hamburger */}
         <div className="flex items-center gap-4 relative z-10">
           <button
             onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
@@ -123,9 +144,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-[#080808] border-t border-[#1e1e1e] flex flex-col px-6 py-4 gap-0">
+        <div className="md:hidden bg-[#080808] border-t border-[#1e1e1e] flex flex-col px-6 py-4">
           {navItems.map(({ id, label }) => {
             const subs = subItems[id] ?? []
             return (
@@ -137,7 +158,7 @@ export default function Navbar() {
                   {label}
                 </button>
                 {subs.length > 0 && (
-                  <div className="pl-4 pb-2 flex flex-col gap-0">
+                  <div className="pl-4 pb-1 flex flex-col">
                     {subs.slice(0, 4).map((sub) => (
                       <button
                         key={sub.id}

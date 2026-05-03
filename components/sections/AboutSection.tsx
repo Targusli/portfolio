@@ -4,24 +4,18 @@ import { useState } from 'react'
 import { useLang } from '@/lib/i18n'
 import { useModal } from '@/lib/modal'
 import { aboutItems, bio } from '@/lib/data'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 // ── Sub-page detail view ──────────────────────────────────────────────────────
 
 function AboutDetail({ itemId }: { itemId: string }) {
   const { lang } = useLang()
-  const { popModal } = useModal()
   const item = aboutItems.find((a) => a.id === itemId)
   if (!item) return null
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
-      <button
-        onClick={popModal}
-        className="font-mono text-xs text-outline hover:text-primary transition-colors mb-6 flex items-center gap-1"
-      >
-        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_back</span>
-        {lang === 'de' ? 'Zurück' : 'Back'}
-      </button>
+      <Breadcrumbs className="mb-6" />
 
       <h2 className="font-mono text-2xl font-bold text-white mb-2">
         {lang === 'de' ? item.title.de : item.title.en}
@@ -61,6 +55,8 @@ function OverviewView() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
+
+      <Breadcrumbs className="mb-6" />
 
       {/* ── Title ── */}
       <h2 className="font-mono text-2xl font-bold text-white mb-8">

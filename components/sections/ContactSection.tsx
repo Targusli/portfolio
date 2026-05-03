@@ -117,7 +117,9 @@ export default function ContactSection() {
         <h3 className="font-mono text-sm font-semibold text-on-surface mb-2">
           {lang === 'de' ? 'Referenzen' : 'References'}
         </h3>
-        <p className="font-mono text-sm text-outline">Auf Anfrage.</p>
+        <p className="font-mono text-sm text-outline">
+          {lang === 'de' ? 'Auf Anfrage.' : 'On request.'}
+        </p>
       </div>
     </div>
   )

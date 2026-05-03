@@ -3,23 +3,16 @@
 import { useLang } from '@/lib/i18n'
 import { useModal } from '@/lib/modal'
 import { projects } from '@/lib/data'
+import Breadcrumbs from '@/components/Breadcrumbs'
 
 function ProjectDetail({ projectId }: { projectId: string }) {
   const { lang, t } = useLang()
-  const { popModal } = useModal()
   const project = projects.find((p) => p.id === projectId)
   if (!project) return null
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-2xl mx-auto w-full">
-      {/* Back to overview */}
-      <button
-        onClick={popModal}
-        className="font-mono text-xs text-outline hover:text-primary transition-colors mb-6 flex items-center gap-1"
-      >
-        <span className="material-symbols-outlined" style={{ fontSize: 14 }}>arrow_back</span>
-        {lang === 'de' ? 'Zurück zu den Arbeiten' : 'Back to Projects'}
-      </button>
+      <Breadcrumbs className="mb-6" />
 
       <div className="flex items-center gap-3 mb-4">
         <span className="font-mono text-xs text-outline">{project.index}</span>
@@ -69,6 +62,7 @@ function OverviewView() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
+      <Breadcrumbs className="mb-6" />
       <h2 className="font-mono text-2xl font-bold text-white mb-3">{t.projects.title}</h2>
       <p className="font-mono text-sm text-on-surface-variant mb-8">{t.projects.subtitle}</p>
       <div className="grid gap-4">
