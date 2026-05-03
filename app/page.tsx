@@ -68,7 +68,9 @@ export default function Home() {
 
   function getTitle(): string {
     if (!activeModal) return ''
-    if (activeModal === 'experience') return t.experience.title
+    if (activeModal === 'experience')           return t.experience.title
+    if (activeModal === 'experience-work')      return t.experience.filterWork
+    if (activeModal === 'experience-education') return t.experience.filterEdu
     if (activeModal === 'skills')           return t.skills.title
     if (activeModal === 'skills-languages') return t.skills.languages
     if (activeModal === 'skills-tools')     return t.skills.tools
@@ -89,7 +91,7 @@ export default function Home() {
 
   function getContent() {
     if (!activeModal) return null
-    if (activeModal === 'experience') return <ExperienceSection />
+    if (activeModal?.startsWith('experience')) return <ExperienceSection />
     if (activeModal.startsWith('skills'))  return <SkillsSection />
     if (activeModal === 'projects' || activeModal.startsWith('project-')) return <ProjectsSection />
     if (activeModal === 'about' || activeModal.startsWith('about-'))      return <AboutSection />

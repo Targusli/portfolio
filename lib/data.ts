@@ -108,7 +108,9 @@ export const languages: Language[] = [
   { name: 'Deutsch', level: { en: 'Native', de: 'Muttersprache' }, proficiency: 100, cert: null, flag: '🇨🇭' },
   { name: 'English', level: { en: 'Fluent – C1', de: 'Fliessend – C1' }, proficiency: 90, cert: 'Cambridge C1 Advanced', flag: '🇬🇧' },
   { name: 'Français', level: { en: 'Basic – A2', de: 'Grundkenntnisse – A2' }, proficiency: 30, cert: null, flag: '🇫🇷' },
-  { name: '日本語', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 10, cert: null, flag: '🇯🇵' },
+  { name: '日本語',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 10, cert: null, flag: '🇯🇵' },
+  { name: 'Python',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 20, cert: null, flag: 'Py' },
+  { name: 'JavaScript', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 20, cert: null, flag: 'JS' },
 ]
 
 export const tools: SkillItem[] = [

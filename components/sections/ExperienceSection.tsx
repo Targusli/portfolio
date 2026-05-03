@@ -1,14 +1,26 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useLang } from '@/lib/i18n'
+import { useModal } from '@/lib/modal'
 import { timelineItems } from '@/lib/data'
 
 type Filter = 'all' | 'work' | 'education'
 
 export default function ExperienceSection() {
   const { lang, t } = useLang()
-  const [filter, setFilter] = useState<Filter>('all')
+  const { activeModal } = useModal()
+  const [filter, setFilter] = useState<Filter>(() => {
+    if (activeModal === 'experience-work')      return 'work'
+    if (activeModal === 'experience-education') return 'education'
+    return 'all'
+  })
+
+  useEffect(() => {
+    if (activeModal === 'experience-work')      setFilter('work')
+    else if (activeModal === 'experience-education') setFilter('education')
+    else setFilter('all')
+  }, [activeModal])
 
   const visible = timelineItems.filter((item) => {
     if (filter === 'all') return true

@@ -42,6 +42,10 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'about-interests', level: 3, labelEn: 'Interests', labelDe: 'Interessen', angle: 343, r: 58, parentId: 'about', modalId: 'about-interests' },
   { id: 'about-goals',     level: 3, labelEn: 'Goals',     labelDe: 'Ziele',      angle: 1,   r: 60, parentId: 'about', modalId: 'about-goals' },
 
+  // ── Level 3 — Experience ────────────────────────────────────────────────────
+  { id: 'exp-work', level: 3, labelEn: 'Work',      labelDe: 'Berufserfahrung', angle: 200, r: 52, parentId: 'exp', modalId: 'experience-work' },
+  { id: 'exp-edu',  level: 3, labelEn: 'Education', labelDe: 'Ausbildung',      angle: 236, r: 52, parentId: 'exp', modalId: 'experience-education' },
+
   // ── Level 3 — Contact ───────────────────────────────────────────────────────
   { id: 'linkedin', level: 3, labelEn: 'LinkedIn', labelDe: 'LinkedIn', angle: 304, r: 52, parentId: 'contact', modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
 ]
@@ -209,7 +213,7 @@ export default function NodeGraph() {
           const sz  = node.level === 0 ? CENTER_SIZE : NODE_SIZE
           const lbl = lang === 'de' ? node.labelDe : node.labelEn
           const isLinkedIn    = !!node.href
-          const isExperience  = node.id === 'exp'
+          const isExperience  = node.id === 'exp' || node.parentId === 'exp'
 
           return (
             <div

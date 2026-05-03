@@ -127,9 +127,12 @@ function OverviewView() {
             className="border border-[#1e1e1e] rounded-sm p-5 hover:border-primary/30 hover:bg-surface-container transition-all group"
           >
             <div className="flex items-center justify-between mb-3">
-              <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors">
+              <button
+                onClick={() => pushModal(card.id)}
+                className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors text-left"
+              >
                 {card.label}
-              </span>
+              </button>
             </div>
             <p className="font-mono text-xs text-outline leading-relaxed mb-4">{card.desc}</p>
 

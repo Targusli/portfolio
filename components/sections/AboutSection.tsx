@@ -126,9 +126,12 @@ function OverviewView() {
           >
             <div className="flex items-center justify-between">
               <div>
-                <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors block mb-0.5">
+                <button
+                  onClick={() => pushModal(`about-${item.id}`)}
+                  className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors block mb-0.5 text-left"
+                >
                   {lang === 'de' ? item.title.de : item.title.en}
-                </span>
+                </button>
                 <span className="font-mono text-xs text-outline">
                   {lang === 'de' ? item.subtitle.de : item.subtitle.en}
                 </span>

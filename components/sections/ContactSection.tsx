@@ -111,6 +111,14 @@ export default function ContactSection() {
           </a>
         ))}
       </div>
+
+      {/* References */}
+      <div className="mt-8 pt-6 border-t border-[#1e1e1e]">
+        <h3 className="font-mono text-sm font-semibold text-on-surface mb-2">
+          {lang === 'de' ? 'Referenzen' : 'References'}
+        </h3>
+        <p className="font-mono text-sm text-outline">Auf Anfrage.</p>
+      </div>
     </div>
   )
 }

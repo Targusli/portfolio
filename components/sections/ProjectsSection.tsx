@@ -84,7 +84,12 @@ function OverviewView() {
             <div className="flex items-start justify-between gap-4 mb-3">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-xs text-outline">{project.index}</span>
-                <span className="font-mono text-sm text-on-surface">{project.title}</span>
+                <button
+                  onClick={() => pushModal(`project-${project.id}`)}
+                  className="font-mono text-sm text-on-surface hover:text-primary transition-colors text-left"
+                >
+                  {project.title}
+                </button>
               </div>
               <div className="flex gap-2 shrink-0">
                 <span className="font-mono text-[10px] px-2 py-0.5 border border-[#2a2a2a] text-outline rounded-sm">
