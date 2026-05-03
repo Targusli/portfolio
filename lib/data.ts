@@ -201,6 +201,17 @@ export const projects: Project[] = [
   },
 ]
 
+// ─── Bio ──────────────────────────────────────────────────────────────────────
+
+export const bio = {
+  en: `Based in Zürich, I work at the intersection of design, technology and marketing. With a background in IT consulting and systems architecture, I bring a structured, analytical approach to digital product development — paired with a genuine passion for clean, user-centred design.
+
+I hold a B.Sc. in Wirtschaftsinformatik and have hands-on experience across enterprise data systems, corporate web platforms and AI-driven automation. I'm driven by the challenge of turning complex requirements into elegant, functional solutions.`,
+  de: `In Zürich tätig, arbeite ich an der Schnittstelle von Design, Technologie und Marketing. Mit einem Hintergrund in IT-Beratung und Systemarchitektur bringe ich einen strukturierten, analytischen Ansatz zur digitalen Produktentwicklung — verbunden mit einer echten Leidenschaft für sauberes, nutzerzentriertes Design.
+
+Ich halte einen B.Sc. in Wirtschaftsinformatik und verfüge über praktische Erfahrung in Enterprise-Datensystemen, Unternehmenswebplattformen und KI-gestützter Automatisierung. Ich bin motiviert durch die Herausforderung, komplexe Anforderungen in elegante, funktionale Lösungen zu verwandeln.`,
+}
+
 // ─── About Me ─────────────────────────────────────────────────────────────────
 
 export interface AboutItem {

@@ -27,7 +27,7 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'projects', level: 2, labelEn: 'Projects',       labelDe: 'Arbeiten',      angle: 142, r: 30, parentId: 'noah',     modalId: 'projects' },
   { id: 'exp',      level: 2, labelEn: 'Experience',     labelDe: 'Erfahrung',     angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
   { id: 'contact',  level: 2, labelEn: 'Contact',        labelDe: 'Kontakt',       angle: 286, r: 32, parentId: 'noah',     modalId: 'contact' },
-  { id: 'linkedin', level: 2, labelEn: 'LinkedIn',       labelDe: 'LinkedIn',      angle: 315, r: 22, parentId: 'noah',     modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
+  { id: 'linkedin', level: 2, labelEn: 'LinkedIn',       labelDe: 'LinkedIn',      angle: 18,  r: 26, parentId: 'noah',     modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
 
   // ── Level 3 — Skills ────────────────────────────────────────────────────────
   { id: 'skills-languages', level: 3, labelEn: 'Languages', labelDe: 'Sprachen', angle: 42,  r: 58, parentId: 'skills', modalId: 'skills-languages' },
@@ -54,7 +54,7 @@ function nodeHash(id: string) {
 
 function toRad(deg: number) { return (deg * Math.PI) / 180 }
 
-const CENTER_SIZE = 92
+const CENTER_SIZE = 106
 const NODE_SIZE   = 72
 const LABEL_PX    = 20
 
@@ -236,29 +236,27 @@ export default function NodeGraph() {
                   }}
                 />
 
-                {/* "Noah" label inside center node */}
-                {node.level === 0 && (
-                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span className="font-mono font-bold tracking-widest text-white" style={{ fontSize: 13 }}>
-                      {lbl}
+                {/* Label below every node — "Noah Zuppiger" for center, regular label for others */}
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none text-center"
+                  style={{ top: sz + 10 }}
+                >
+                  {node.level === 0 ? (
+                    <span
+                      className="font-mono font-bold text-white tracking-widest drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]"
+                      style={{ fontSize: 15 }}
+                    >
+                      Noah Zuppiger
                     </span>
-                  </div>
-                )}
-
-                {/* Labels below all other nodes */}
-                {node.level !== 0 && (
-                  <div
-                    className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none"
-                    style={{ top: sz + 8 }}
-                  >
+                  ) : (
                     <span
                       className="font-mono font-semibold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
                       style={{ fontSize: LABEL_PX }}
                     >
                       {lbl}
                     </span>
-                  </div>
-                )}
+                  )}
+                </div>
               </motion.div>
             </div>
           )
