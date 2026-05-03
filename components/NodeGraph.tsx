@@ -27,7 +27,6 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'projects', level: 2, labelEn: 'Projects',       labelDe: 'Arbeiten',      angle: 142, r: 30, parentId: 'noah',     modalId: 'projects' },
   { id: 'exp',      level: 2, labelEn: 'Experience',     labelDe: 'Erfahrung',     angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
   { id: 'contact',  level: 2, labelEn: 'Contact',        labelDe: 'Kontakt',       angle: 286, r: 32, parentId: 'noah',     modalId: 'contact' },
-  { id: 'linkedin', level: 2, labelEn: 'LinkedIn',       labelDe: 'LinkedIn',      angle: 18,  r: 26, parentId: 'noah',     modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
 
   // ── Level 3 — Skills ────────────────────────────────────────────────────────
   { id: 'skills-languages', level: 3, labelEn: 'Languages', labelDe: 'Sprachen', angle: 42,  r: 58, parentId: 'skills', modalId: 'skills-languages' },
@@ -44,6 +43,9 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'about-interests', level: 3, labelEn: 'Interests', labelDe: 'Interessen', angle: 338, r: 58, parentId: 'about', modalId: 'about-interests' },
   { id: 'about-story',     level: 3, labelEn: 'Story',     labelDe: 'Story',      angle: 352, r: 54, parentId: 'about', modalId: 'about-story' },
   { id: 'about-goals',     level: 3, labelEn: 'Goals',     labelDe: 'Ziele',      angle: 7,   r: 60, parentId: 'about', modalId: 'about-goals' },
+
+  // ── Level 3 — Contact ───────────────────────────────────────────────────────
+  { id: 'linkedin', level: 3, labelEn: 'LinkedIn', labelDe: 'LinkedIn', angle: 304, r: 52, parentId: 'contact', modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
 ]
 
 function nodeHash(id: string) {
@@ -208,7 +210,8 @@ export default function NodeGraph() {
           const del = ((h % 100) / 100) * dur
           const sz  = node.level === 0 ? CENTER_SIZE : NODE_SIZE
           const lbl = lang === 'de' ? node.labelDe : node.labelEn
-          const isLinkedIn = !!node.href
+          const isLinkedIn    = !!node.href
+          const isExperience  = node.id === 'exp'
 
           return (
             <div
@@ -231,31 +234,26 @@ export default function NodeGraph() {
                   style={{
                     background: isLinkedIn
                       ? `radial-gradient(circle at center, rgba(10,102,194,0.90) 0%, rgba(10,102,194,0.44) 32%, rgba(10,102,194,0.12) 64%, transparent 100%)`
+                      : isExperience
+                      ? `radial-gradient(circle at center, rgba(245,158,11,0.78) 0%, rgba(245,158,11,0.38) 32%, rgba(245,158,11,0.10) 64%, transparent 100%)`
                       : `radial-gradient(circle at center, rgba(74,127,193,0.88) 0%, rgba(74,127,193,0.44) 32%, rgba(74,127,193,0.12) 64%, transparent 100%)`,
-                    boxShadow: `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(74,127,193,0.22)`,
+                    boxShadow: isExperience
+                      ? `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(245,158,11,0.20)`
+                      : `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(74,127,193,0.22)`,
                   }}
                 />
 
-                {/* Label below every node — "Noah Zuppiger" for center, regular label for others */}
+                {/* Label below every node */}
                 <div
                   className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none text-center"
                   style={{ top: sz + 10 }}
                 >
-                  {node.level === 0 ? (
-                    <span
-                      className="font-mono font-bold text-white tracking-widest drop-shadow-[0_1px_6px_rgba(0,0,0,0.9)]"
-                      style={{ fontSize: 15 }}
-                    >
-                      Noah Zuppiger
-                    </span>
-                  ) : (
-                    <span
-                      className="font-mono font-semibold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
-                      style={{ fontSize: LABEL_PX }}
-                    >
-                      {lbl}
-                    </span>
-                  )}
+                  <span
+                    className="font-mono font-semibold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
+                    style={{ fontSize: node.level === 0 ? 14 : LABEL_PX }}
+                  >
+                    {lbl}
+                  </span>
                 </div>
               </motion.div>
             </div>

@@ -1,94 +1,111 @@
 'use client'
 
-import { useState } from 'react'
 import { useLang } from '@/lib/i18n'
 
-type Status = 'idle' | 'sending' | 'sent'
+const DOWNLOAD_ITEMS = [
+  { href: '/downloads/cv.pdf',            labelEn: 'CV',                          labelDe: 'Lebenslauf' },
+  { href: '/downloads/zertifikate.pdf',   labelEn: 'Certificates & Education',    labelDe: 'Zertifikate & Ausbildungen' },
+]
 
 export default function ContactSection() {
-  const { t } = useLang()
-  const [status, setStatus] = useState<Status>('idle')
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }))
-  }
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (status !== 'idle') return
-    setStatus('sending')
-    setTimeout(() => setStatus('sent'), 1600)
-  }
-
-  if (status === 'sent') {
-    return (
-      <div className="px-6 md:px-10 py-16 max-w-xl mx-auto w-full flex flex-col items-center justify-center text-center gap-4">
-        <span className="material-symbols-outlined text-primary" style={{ fontSize: 48 }}>
-          check_circle
-        </span>
-        <p className="font-mono text-sm text-on-surface">{t.contact.sent}</p>
-      </div>
-    )
-  }
-
-  const inputClass =
-    'w-full bg-[#0a0a0a] border border-[#1e1e1e] focus:border-primary/50 outline-none rounded-sm px-4 py-3 font-mono text-sm text-on-surface placeholder:text-outline/50 transition-colors'
+  const { lang } = useLang()
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-xl mx-auto w-full">
-      <p className="font-mono text-sm text-on-surface-variant mb-8">{t.contact.subtitle}</p>
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <div>
-          <label className="block font-mono text-xs text-outline mb-2 tracking-wider uppercase">
-            {t.contact.name}
-          </label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={form.name}
-            onChange={handleChange}
-            placeholder={t.contact.namePlaceholder}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="block font-mono text-xs text-outline mb-2 tracking-wider uppercase">
-            {t.contact.email}
-          </label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={form.email}
-            onChange={handleChange}
-            placeholder={t.contact.emailPlaceholder}
-            className={inputClass}
-          />
-        </div>
-        <div>
-          <label className="block font-mono text-xs text-outline mb-2 tracking-wider uppercase">
-            {t.contact.message}
-          </label>
-          <textarea
-            name="message"
-            required
-            rows={5}
-            value={form.message}
-            onChange={handleChange}
-            placeholder={t.contact.messagePlaceholder}
-            className={`${inputClass} resize-none`}
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={status === 'sending'}
-          className="w-full font-mono text-sm py-3 px-6 bg-primary/10 border border-primary/40 text-primary hover:bg-primary/20 hover:border-primary/70 transition-all rounded-sm disabled:opacity-50 disabled:cursor-not-allowed"
+
+      {/* Tagline */}
+      <p className="font-mono text-sm text-on-surface-variant mb-10">
+        {lang === 'de' ? 'Offen für Möglichkeiten.' : 'Open to opportunities.'}
+      </p>
+
+      {/* Contact boxes */}
+      <div className="flex flex-col gap-3 mb-10">
+
+        {/* Email */}
+        <a
+          href="mailto:noah.zuppiger@gmail.com"
+          className="flex items-center gap-4 border border-[#1e1e1e] hover:border-primary/30 hover:bg-surface-container rounded-sm px-5 py-4 transition-all group"
         >
-          {status === 'sending' ? t.contact.sending : t.contact.send}
-        </button>
-      </form>
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style={{ fontSize: 20 }}>
+            mail
+          </span>
+          <div className="flex flex-col min-w-0">
+            <span className="font-mono text-[10px] text-outline tracking-widest uppercase mb-0.5">Email</span>
+            <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors truncate">
+              noah.zuppiger@gmail.com
+            </span>
+          </div>
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors ml-auto shrink-0" style={{ fontSize: 16 }}>
+            arrow_outward
+          </span>
+        </a>
+
+        {/* LinkedIn */}
+        <a
+          href="https://www.linkedin.com/in/noah-zuppiger/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 border border-[#1e1e1e] hover:border-primary/30 hover:bg-surface-container rounded-sm px-5 py-4 transition-all group"
+        >
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style={{ fontSize: 20 }}>
+            open_in_new
+          </span>
+          <div className="flex flex-col">
+            <span className="font-mono text-[10px] text-outline tracking-widest uppercase mb-0.5">LinkedIn</span>
+            <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors">
+              noah-zuppiger
+            </span>
+          </div>
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors ml-auto shrink-0" style={{ fontSize: 16 }}>
+            arrow_outward
+          </span>
+        </a>
+
+        {/* GitHub */}
+        <a
+          href="https://github.com/Targusli"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-4 border border-[#1e1e1e] hover:border-primary/30 hover:bg-surface-container rounded-sm px-5 py-4 transition-all group"
+        >
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors" style={{ fontSize: 20 }}>
+            code
+          </span>
+          <div className="flex flex-col">
+            <span className="font-mono text-[10px] text-outline tracking-widest uppercase mb-0.5">GitHub</span>
+            <span className="font-mono text-sm text-on-surface group-hover:text-primary transition-colors">
+              Targusli
+            </span>
+          </div>
+          <span className="material-symbols-outlined text-outline group-hover:text-primary transition-colors ml-auto shrink-0" style={{ fontSize: 16 }}>
+            arrow_outward
+          </span>
+        </a>
+      </div>
+
+      {/* Divider */}
+      <div className="flex items-center gap-4 mb-6">
+        <div className="h-px flex-1 bg-[#1e1e1e]" />
+        <span className="font-mono text-[10px] text-outline tracking-widest uppercase">
+          {lang === 'de' ? 'Downloads' : 'Downloads'}
+        </span>
+        <div className="h-px flex-1 bg-[#1e1e1e]" />
+      </div>
+
+      {/* Download buttons */}
+      <div className="flex flex-col sm:flex-row gap-3">
+        {DOWNLOAD_ITEMS.map(({ href, labelEn, labelDe }) => (
+          <a
+            key={href}
+            href={href}
+            download
+            className="flex-1 flex items-center justify-center gap-2 font-mono text-xs border border-[#2a2a2a] hover:border-primary/40 text-outline hover:text-primary px-4 py-3 rounded-sm transition-all"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 16 }}>download</span>
+            {lang === 'de' ? labelDe : labelEn}
+          </a>
+        ))}
+      </div>
     </div>
   )
 }

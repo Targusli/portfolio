@@ -18,9 +18,27 @@ export default function ExperienceSection() {
 
   return (
     <div className="px-6 md:px-10 py-8 max-w-3xl mx-auto w-full">
-      <p className="font-mono text-sm text-on-surface-variant mb-8">
+      <p className="font-mono text-sm text-on-surface-variant mb-6">
         {t.experience.subtitle}
       </p>
+
+      {/* Download buttons */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-8">
+        {[
+          { href: '/downloads/cv.pdf',          labelEn: 'CV',                       labelDe: 'Lebenslauf' },
+          { href: '/downloads/zertifikate.pdf', labelEn: 'Certificates & Education', labelDe: 'Zertifikate & Ausbildungen' },
+        ].map(({ href, labelEn, labelDe }) => (
+          <a
+            key={href}
+            href={href}
+            download
+            className="inline-flex items-center justify-center gap-2 font-mono text-xs border border-[#2a2a2a] hover:border-primary/40 text-outline hover:text-primary px-4 py-2.5 rounded-sm transition-all"
+          >
+            <span className="material-symbols-outlined" style={{ fontSize: 15 }}>download</span>
+            {lang === 'de' ? labelDe : labelEn}
+          </a>
+        ))}
+      </div>
 
       {/* Filter buttons */}
       <div className="flex gap-3 mb-10">
