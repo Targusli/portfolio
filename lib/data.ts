@@ -54,8 +54,8 @@ export const timelineItems: TimelineItem[] = [
     title: { en: 'Dipl. Business IT Specialist HF', de: 'Dipl. Wirtschaftsinformatiker HF' },
     company: { en: 'HSO Wirtschaftsschule Schweiz', de: 'HSO Wirtschaftsschule Schweiz' },
     description: {
-      en: 'Three-year higher professional education in Business IT, currently in progress. Year one covers business processes, IT foundations, project management and management basics. Year two adds data management, solution engineering and a practical project. Year three wraps up with digital transformation, IT security, IT management and a diploma thesis.',
-      de: 'Dreijährige Ausbildung in Wirtschaftsinformatik, aktuell im Gange. Im ersten Jahr stehen Geschäftsprozesse, IT-Grundlagen, Projektmanagement und Management auf dem Programm. Das zweite Jahr ergänzt Datenmanagement, Solution Engineering und eine Praxisarbeit. Im dritten Jahr folgen digitale Transformation, IT-Sicherheit, IT-Management und die Diplomarbeit.',
+      en: 'Higher professional education in Business IT, currently in progress. Topics: Business Process Management, IT foundations, project and portfolio management, data management and analysis, solution engineering, digital transformation, IT security and risk management, and intra- and entrepreneurship. The program includes a practical project and a final diploma thesis.',
+      de: 'Höhere Fachschule Wirtschaftsinformatik, aktuell laufend. Themen: Business Process Management, IT-Grundlagen, Projekt- und Portfoliomanagement, Datenmanagement und Analyse, Solution Engineering, digitale Transformation, IT-Sicherheit und Risikomanagement sowie Intra- und Entrepreneurship. Beinhaltet eine Praxisarbeit und eine Diplomarbeit.',
     },
   },
   {
@@ -209,21 +209,27 @@ export const projects: Project[] = [
 // ─── Bio ──────────────────────────────────────────────────────────────────────
 
 export const bio = {
-  en: `Based in Zürich, I work across marketing, design and IT. My background started with a Mediamatician apprenticeship — a broad, hands-on training covering web, design, communications and project work. Since 2022 I've been Marketing Manager at Netcom AG, handling everything from webshop content and mockups to running projects and rolling out new tools and processes.
+  en: `My name is Noah, I'm 24 years old, and I live in Uster. I've always been fascinated by technology. Even during my apprenticeship as a Mediamatician, I gained insights into the world of IT at my training company, Cognizant. What appealed to me most was the interplay between processes and systems.
 
-Alongside work, I'm currently studying Business IT (Wirtschaftsinformatiker HF) at HSO — pushing further into the technical side of things. I like building things that actually work: automations, clean interfaces, systems that make everyday work a bit easier.`,
-  de: `In Zürich tätig, arbeite ich an der Schnittstelle von Marketing, Design und IT. Meine Grundlage bildet die Lehre zum Mediamatiker EFZ — eine praxisnahe Ausbildung mit Web, Design, Kommunikation und Projektarbeit. Seit 2022 bin ich als Marketing Manager bei der Netcom AG tätig und kümmere mich um Webshop-Inhalte, Mockups, Projekte sowie die Einführung neuer Tools und Prozesse.
+For the past four years, I've worked as a Marketing Manager at a telecommunications SME. My responsibilities included traditional marketing tasks as well as managing the webshop, automating processes, and implementing new tools. The technical side of the work is what I found most compelling. That's why I started studying in August 2024 to earn a degree in Business Informatics (HF) at HSO. I made that decision deliberately because I genuinely enjoy this field and want to help shape and deliver technical solutions.`,
+  de: `Ich bin Noah, 24 Jahre alt und wohne in Uster. Technik hat mich schon immer fasziniert. Bereits während meiner Lehre zum Mediamatiker erhielt ich Einblicke in die IT-Welt bei der Lehrfirma Cognizant. Das Zusammenspiel der Prozesse und Systeme sprach mich am meisten an.
 
-Nebenbei studiere ich aktuell Wirtschaftsinformatik HF an der HSO — denn ich möchte die technische Seite weiter vertiefen. Ich baue gerne Dinge, die wirklich funktionieren: Automatisierungen, klare Interfaces, Systeme, die den Alltag leichter machen.`,
+In den letzten vier Jahren war ich als Marketing Manager bei einem Telekommunikations-KMU tätig. Dabei waren klassische Marketingaufgaben meine Tätigkeit, jedoch auch das Betreuen des Webshops, Prozesse automatisieren und neue Tools implementieren. Der technische Aspekt sprach mich dabei am meisten an. Daher begann ich im August 2024 mit dem Studium zum Wirtschaftsinformatiker HF an der HSO. Diesen Schritt wählte ich bewusst, da ich meine Begeisterung dafür merke und technische Lösungen begleiten und mitgestalten möchte.`,
 }
 
 // ─── About Me ─────────────────────────────────────────────────────────────────
+
+export interface AboutSection {
+  title: { en: string; de: string }
+  body: { en: string; de: string }
+}
 
 export interface AboutItem {
   id: string
   title: { en: string; de: string }
   subtitle: { en: string; de: string }
   body: { en: string; de: string }
+  sections?: AboutSection[]
 }
 
 export const aboutItems: AboutItem[] = [
@@ -232,18 +238,35 @@ export const aboutItems: AboutItem[] = [
     title: { en: 'Interests', de: 'Interessen' },
     subtitle: { en: 'What I get up to outside of work', de: 'Was ich neben der Arbeit mache' },
     body: {
-      en: 'Photography, travel, tech and music are the things that keep me busy outside of work. I like exploring cities and landscapes with a camera, tinkering with self-hosted services on my homelab, and playing guitar. I try to visit at least two new countries a year — Japan is definitely on the list.',
-      de: 'Fotografie, Reisen, Technik und Musik sind meine Hauptbeschäftigungen neben der Arbeit. Ich erkunde Städte und Landschaften mit der Kamera, betreibe ein Homelab mit diversen Self-Hosted-Diensten und spiele Gitarre. Mindestens zwei neue Länder pro Jahr — Japan steht definitiv auf der Liste.',
+      en: `To take a break from screen time, I enjoy being outdoors. Whether it's hiking, fishing, working out, or spending time with friends and family, these activities give me the balance I need. My camera often comes along, as photography used to be a big hobby of mine and I still find it just as interesting.
+
+What else really fascinates me is space and everything connected to it. How does time actually work? Is it the fourth dimension? What about space and mass? I enjoy thinking about questions like these from time to time.`,
+      de: `Zur Abwechslung zu meiner Bildschirmzeit bin ich gerne draussen. Sei es beim Wandern, Fischen, im Fitness oder beim Unternehmen mit Kollegen und Familie. Das gibt mir den nötigen Ausgleich. Dabei begleitet mich ab und zu meine Kamera, da Fotografie schon früher ein grösseres Hobby von mir war und ich auch jetzt noch etwas Spannendes darin finde.
+
+Was mich sonst so richtig fasziniert, ist das Weltall und alles was damit zusammenhängt. Wie funktioniert Zeit, ist sie die vierte Dimension, wie verhält es sich mit Raum und Masse? Mit solchen Fragen befasse ich mich ab und an gerne.`,
     },
   },
   {
     id: 'goals',
     title: { en: 'Goals', de: 'Ziele' },
     subtitle: { en: 'Where I am heading', de: 'Wohin ich mich entwickle' },
-    body: {
-      en: "I want to build digital products that work well and look the part. My focus is on the space between design and technology — creating things that are solid under the hood but feel natural to use. Long term I'd like to combine automation, AI and good UX into tools that actually change how people work day to day.",
-      de: 'Ich möchte digitale Produkte entwickeln, die gut funktionieren und gut aussehen. Mein Fokus liegt auf dem Bereich zwischen Design und Technologie — Dinge schaffen, die technisch solide sind, sich aber natürlich anfühlen. Langfristig möchte ich Automatisierung, KI und gute UX in Tools verbinden, die den Arbeitsalltag wirklich verändern.',
-    },
+    body: { en: '', de: '' },
+    sections: [
+      {
+        title: { en: 'Professional Goals', de: 'Berufliche Ziele' },
+        body: {
+          en: "My next goal is to earn a bachelor's degree in Business Informatics at ZHAW. A longer-term goal is to specialise in cybersecurity. More importantly, I want to work in a role where I can make a real difference, bring in my knowledge and skills, and keep growing.",
+          de: 'Mein nächstes Ziel ist es, den Bachelor in Wirtschaftsinformatik an der ZHAW zu absolvieren. Ein langfristiges Ziel ist es, mich in Richtung Cybersecurity zu spezialisieren. Wichtiger ist jedoch, bis dahin in einer Rolle zu arbeiten, in der ich etwas bewegen kann, mein Wissen und Können einbringe und vorankomme.',
+        },
+      },
+      {
+        title: { en: 'Personal Goals', de: 'Private Ziele' },
+        body: {
+          en: "Perhaps the opportunity to live abroad will come up at some point. I'm learning Japanese for a reason. But before anything else, I'd visit the country and get to know the culture first. Another wish of mine is to build up enough freedom to make decisions based on conviction rather than necessity.",
+          de: 'Vielleicht ergibt sich die Möglichkeit, in Zukunft im Ausland zu leben. Japanisch lerne ich natürlich aus einem Grund. Dafür würde ich das Land aber zuerst besuchen und die Kulturen kennenlernen. Ein weiterer Wunsch ist es, die Freiheit aufzubauen und Entscheidungen aus Überzeugung und nicht aus Notwendigkeit treffen zu können.',
+        },
+      },
+    ],
   },
 ]
 

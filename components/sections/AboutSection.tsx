@@ -24,24 +24,29 @@ function AboutDetail({ itemId }: { itemId: string }) {
         {lang === 'de' ? item.subtitle.de : item.subtitle.en}
       </p>
 
-      {/* Decorative image placeholder */}
-      <div className="w-full h-44 mb-8 rounded-sm border border-[#1e1e1e] bg-surface-container flex items-center justify-center overflow-hidden relative">
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage:
-              'linear-gradient(to right, #a4c9ff 1px, transparent 1px), linear-gradient(to bottom, #a4c9ff 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
-          }}
-        />
-        <span className="font-mono text-[11px] text-outline tracking-widest uppercase z-10">
-          {lang === 'de' ? item.title.de : item.title.en}
-        </span>
-      </div>
-
-      <p className="text-on-surface-variant leading-relaxed text-[15px] whitespace-pre-line">
-        {lang === 'de' ? item.body.de : item.body.en}
-      </p>
+      {/* Sections (e.g. Goals split into Professional / Personal) */}
+      {item.sections ? (
+        <div className="space-y-8">
+          {item.sections.map((sec) => (
+            <div key={sec.title.en}>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="h-px flex-1 bg-[#1e1e1e]" />
+                <span className="font-mono text-[10px] text-outline tracking-widest uppercase">
+                  {lang === 'de' ? sec.title.de : sec.title.en}
+                </span>
+                <div className="h-px flex-1 bg-[#1e1e1e]" />
+              </div>
+              <p className="text-on-surface-variant leading-relaxed text-[15px] whitespace-pre-line">
+                {lang === 'de' ? sec.body.de : sec.body.en}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-on-surface-variant leading-relaxed text-[15px] whitespace-pre-line">
+          {lang === 'de' ? item.body.de : item.body.en}
+        </p>
+      )}
     </div>
   )
 }
