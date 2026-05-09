@@ -47,58 +47,58 @@ export interface Hobby {
 
 export const timelineItems: TimelineItem[] = [
   {
-    id: 'systems-analyst',
+    id: 'marketing-manager',
     type: 'work',
-    period: '2022 – Present',
-    title: { en: 'Systems Analyst', de: 'Systems Analyst' },
-    company: { en: 'Tech.Corp GmbH', de: 'Tech.Corp GmbH' },
+    period: '2022 – Heute',
+    title: { en: 'Marketing Manager', de: 'Marketing Manager' },
+    company: { en: 'Netcom AG', de: 'Netcom AG' },
     description: {
-      en: 'Lead architect for enterprise resource planning integration. Designed high-availability data pipelines connecting legacy mainframe systems with modern microservices. Reduced query latency by 45%.',
-      de: 'Leitender Architekt für die ERP-Integration. Entwarf hochverfügbare Datenpipelines zwischen Legacy-Systemen und modernen Microservices. Reduzierte Abfragelatenz um 45 %.',
+      en: 'Handling webshop content — keeping it updated and on-brand. Creating mockups, running projects from brief to delivery, evaluating and rolling out new tools and processes. Also covers event and trade show planning, print materials, and internal and external communications.',
+      de: 'Betreuung & Pflege der Inhalte Webshop, Erstellen von Mockups, Abwicklung von Projekten, Evaluieren und Einführen diverser Applikationen & Prozesse, Messen- & Eventplanung, Printmedien, Interne & Externe Kommunikation.',
     },
   },
   {
-    id: 'consultant',
+    id: 'lehre-cognizant',
     type: 'work',
-    period: '2020 – 2022',
-    title: { en: 'Junior IT Consultant', de: 'Junior IT-Berater' },
-    company: { en: 'Consulting Wirtschaftsinformatik AG', de: 'Consulting Wirtschaftsinformatik AG' },
-    description: {
-      en: 'Supported digital transformation at mid-sized financial institutions. Conducted requirements engineering and coordinated agile sprints with offshore engineering teams.',
-      de: 'Begleitete die digitale Transformation mittelständischer Finanzinstitute. Anforderungsengineering und Koordination agiler Sprints mit internationalen Entwicklungsteams.',
-    },
-  },
-  {
-    id: 'bsc',
-    type: 'education',
     period: '2019 – 2022',
-    title: { en: 'B.Sc. Wirtschaftsinformatik', de: 'B.Sc. Wirtschaftsinformatik' },
-    company: { en: 'University of Applied Sciences', de: 'Fachhochschule' },
+    title: { en: 'Mediamatician Apprenticeship (EFZ)', de: 'Lehre zum Mediamatiker EFZ' },
+    company: { en: 'Cognizant AG', de: 'Cognizant AG' },
     description: {
-      en: 'Thesis: "Evaluating Micro-Frontend Efficiency in Enterprise Applications." Graduated with honours. Key coursework: Systems Architecture, Database Design, IT Project Management.',
-      de: 'Abschlussarbeit: „Effizienz von Micro-Frontends in Enterprise-Anwendungen." Mit Auszeichnung abgeschlossen. Schwerpunkte: Systemarchitektur, Datenbankdesign, IT-Projektmanagement.',
+      en: 'Years two and three of the Mediamatician apprenticeship. Rotated across different departments — hands-on work in web, design, project coordination and digital communications.',
+      de: 'Zweites und drittes Lehrjahr der Mediamatiker-Ausbildung. Einsatz in verschiedenen Bereichen mit praktischer Erfahrung in Web, Design, Projektkoordination und digitaler Kommunikation.',
     },
   },
   {
-    id: 'data-intern',
+    id: 'basislehrjahr',
     type: 'work',
-    period: '2018 – 2020',
-    title: { en: 'Data Engineer Intern', de: 'Data-Engineer-Praktikant' },
-    company: { en: 'Dataflow Logistics', de: 'Dataflow Logistics' },
+    period: '2018 – 2019',
+    title: { en: 'Base Year — Mediamatician Apprenticeship', de: 'Basislehrjahr — Lehre Mediamatiker EFZ' },
+    company: { en: 'Zürcher Lehrbetriebsverband ICT', de: 'Zürcher Lehrbetriebsverband ICT' },
     description: {
-      en: 'Built automated Python scripts for data cleansing and normalisation. Maintained SQL database integrity ensuring 99.9 % uptime during peak cycles.',
-      de: 'Entwickelte automatisierte Python-Skripte zur Datenbereinigung. Wartete SQL-Datenbanken mit 99,9 % Verfügbarkeit auch in Spitzenlastzeiten.',
+      en: 'First year of the Mediamatician apprenticeship at the Zurich ICT training association. Built foundations in IT, design, project management and business processes.',
+      de: 'Erstes Lehrjahr der Mediamatiker-Ausbildung beim Zürcher Lehrbetriebsverband ICT. Grundlagen in IT, Design, Projektmanagement und Geschäftsprozessen.',
     },
   },
   {
-    id: 'diploma',
+    id: 'hso',
     type: 'education',
-    period: '2015 – 2019',
-    title: { en: 'Federal Diploma in IT', de: 'Eidg. Diplom Informatik' },
-    company: { en: 'Vocational School of Technology', de: 'Technische Berufsfachschule' },
+    period: '2024 – 2027',
+    title: { en: 'Dipl. Business IT Specialist HF', de: 'Dipl. Wirtschaftsinformatiker HF' },
+    company: { en: 'HSO Wirtschaftsschule Schweiz', de: 'HSO Wirtschaftsschule Schweiz' },
     description: {
-      en: 'Specialisation in Application Development. Practical training combined with rigorous academic study in core computer science principles.',
-      de: 'Vertiefung Applikationsentwicklung. Praxisnahe Ausbildung kombiniert mit fundiertem theoretischem Informatikstudium.',
+      en: 'Higher professional education in Business IT — currently in progress. Covers systems analysis, software development, business processes and IT project management.',
+      de: 'Höhere Fachschule Wirtschaftsinformatik — aktuell im Gange. Systemanalyse, Softwareentwicklung, Geschäftsprozesse und IT-Projektmanagement.',
+    },
+  },
+  {
+    id: 'bzz',
+    type: 'education',
+    period: '2018 – 2022',
+    title: { en: 'Mediamatician (EFZ)', de: 'Mediamatiker EFZ' },
+    company: { en: 'Vocational School BZZ Horgen', de: 'Berufsschule BZZ Horgen' },
+    description: {
+      en: 'Vocational school running alongside the Mediamatician apprenticeship. Core subjects: web technologies, design, communications, business administration and project management.',
+      de: 'Berufsschule begleitend zur Mediamatiker-Lehre. Kernfächer: Webtechnologien, Design, Kommunikation, Betriebswirtschaft und Projektmanagement.',
     },
   },
 ]
@@ -110,6 +110,7 @@ export const languages: Language[] = [
   { name: 'English', level: { en: 'Fluent – C1', de: 'Fliessend – C1' }, proficiency: 90, cert: 'Cambridge C1 Advanced', flag: '🇬🇧' },
   { name: 'Français', level: { en: 'Basic – A2', de: 'Grundkenntnisse – A2' }, proficiency: 30, cert: null, flag: '🇫🇷' },
   { name: '日本語',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 10, cert: null, flag: '🇯🇵' },
+  { name: 'HTML & CSS', level: { en: 'Intermediate – can read & write', de: 'Mittelstufe – lesen & schreiben' }, proficiency: 50, cert: null, flag: '<>', type: 'programming' },
   { name: 'Python',     level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'Py', type: 'programming' },
   { name: 'JavaScript', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'JS', type: 'programming' },
 ]
@@ -156,21 +157,21 @@ export const projects: Project[] = [
     category: { en: 'Automation', de: 'Automatisierung' },
     title: 'n8n Workflow Automation',
     description: {
-      en: 'Designed and implemented a comprehensive n8n orchestration system to synchronise CRM data with external marketing platforms. Reduced manual data entry by 85 % while ensuring zero-loss transactional integrity across API endpoints.',
-      de: 'Entwarf und implementierte ein umfassendes n8n-Orchestrierungssystem zur Synchronisation von CRM-Daten mit externen Marketing-Plattformen. Reduzierte manuelle Dateneingabe um 85 %.',
+      en: 'Built an automation setup using n8n to sync data between different tools and platforms — cutting down on manual work and keeping everything running without needing to touch it daily.',
+      de: 'Automatisierungssetup mit n8n aufgebaut, das Daten zwischen verschiedenen Tools und Plattformen synchronisiert — weniger manuelle Arbeit, mehr Zuverlässigkeit.',
     },
-    tags: ['n8n', 'API', 'Node.js'],
+    tags: ['n8n', 'API', 'Automation'],
     href: '#',
     pending: false,
   },
   {
     id: 'web',
     index: '02',
-    category: { en: 'Frontend', de: 'Frontend' },
-    title: 'Company Website Redesign',
+    category: { en: 'Web', de: 'Web' },
+    title: 'Website Redesign',
     description: {
-      en: 'Led the technical execution of a corporate web platform overhaul. Translated high-fidelity designs into a performant, component-driven architecture using modern Next.js paradigms for optimal Core Web Vitals.',
-      de: 'Leitete den technischen Umbau eines Unternehmenswebauftritts. Übersetzte High-Fidelity-Designs in eine performante, komponentenbasierte Architektur mit optimalen Core Web Vitals.',
+      en: 'Redesigned and rebuilt a company website from the ground up — turned mockups into a clean, fast Next.js and Tailwind setup that is easy to maintain and looks the part.',
+      de: 'Unternehmens-Website von Grund auf neu designed und umgesetzt — aus Mockups wurde ein sauberes, schnelles Next.js- und Tailwind-Setup, das einfach zu pflegen ist.',
     },
     tags: ['Next.js', 'Tailwind', 'TypeScript'],
     href: '#',
@@ -179,13 +180,13 @@ export const projects: Project[] = [
   {
     id: 'ai',
     index: '03',
-    category: { en: 'Machine Learning', de: 'Machine Learning' },
+    category: { en: 'AI', de: 'AI' },
     title: 'AI Image Pipeline',
     description: {
-      en: 'Architected a scalable ingestion pipeline using cloud-native GPU instances to generate and optimise high-volume visual assets. Integrated custom prompting heuristics to maintain brand consistency.',
-      de: 'Entwickelte eine skalierbare Ingestion-Pipeline auf Cloud-GPU-Basis zur Generierung und Optimierung grosser Mengen visueller Assets mit markenkonformer Qualität.',
+      en: 'Set up a local Stable Diffusion pipeline to generate and process images in bulk — handy for producing marketing visuals without relying on stock photos or paid services.',
+      de: 'Lokale Stable-Diffusion-Pipeline aufgesetzt, um Bilder in grösserem Umfang zu generieren — praktisch für Marketing-Visuals ohne Stockfotos oder externe Dienste.',
     },
-    tags: ['Python', 'AWS', 'Stable Diffusion'],
+    tags: ['Stable Diffusion', 'Python', 'AI'],
     href: '#',
     pending: false,
   },
@@ -195,8 +196,8 @@ export const projects: Project[] = [
     category: { en: 'Pending', de: 'Ausstehend' },
     title: '[In Progress]',
     description: {
-      en: 'A decentralised credential verification system using blockchain. Architecture phase ongoing.',
-      de: 'Ein dezentrales Beglaubigungssystem auf Blockchain-Basis. Architekturphase läuft.',
+      en: 'Next project in the works — details coming soon.',
+      de: 'Nächstes Projekt in Arbeit — Details folgen.',
     },
     tags: ['TBD'],
     href: null,
@@ -207,12 +208,12 @@ export const projects: Project[] = [
 // ─── Bio ──────────────────────────────────────────────────────────────────────
 
 export const bio = {
-  en: `Based in Zürich, I work at the intersection of design, technology and marketing. With a background in IT consulting and systems architecture, I bring a structured, analytical approach to digital product development — paired with a genuine passion for clean, user-centred design.
+  en: `Based in Zürich, I work across marketing, design and IT. My background started with a Mediamatician apprenticeship — a broad, hands-on training covering web, design, communications and project work. Since 2022 I've been Marketing Manager at Netcom AG, handling everything from webshop content and mockups to running projects and rolling out new tools and processes.
 
-I hold a B.Sc. in Wirtschaftsinformatik and have hands-on experience across enterprise data systems, corporate web platforms and AI-driven automation. I'm driven by the challenge of turning complex requirements into elegant, functional solutions.`,
-  de: `In Zürich tätig, arbeite ich an der Schnittstelle von Design, Technologie und Marketing. Mit einem Hintergrund in IT-Beratung und Systemarchitektur bringe ich einen strukturierten, analytischen Ansatz zur digitalen Produktentwicklung — verbunden mit einer echten Leidenschaft für sauberes, nutzerzentriertes Design.
+Alongside work, I'm currently studying Business IT (Wirtschaftsinformatiker HF) at HSO — pushing further into the technical side of things. I like building things that actually work: automations, clean interfaces, systems that make everyday work a bit easier.`,
+  de: `In Zürich tätig, arbeite ich an der Schnittstelle von Marketing, Design und IT. Meine Grundlage bildet die Lehre zum Mediamatiker EFZ — eine praxisnahe Ausbildung mit Web, Design, Kommunikation und Projektarbeit. Seit 2022 bin ich als Marketing Manager bei der Netcom AG tätig und kümmere mich um Webshop-Inhalte, Mockups, Projekte sowie die Einführung neuer Tools und Prozesse.
 
-Ich halte einen B.Sc. in Wirtschaftsinformatik und verfüge über praktische Erfahrung in Enterprise-Datensystemen, Unternehmenswebplattformen und KI-gestützter Automatisierung. Ich bin motiviert durch die Herausforderung, komplexe Anforderungen in elegante, funktionale Lösungen zu verwandeln.`,
+Nebenbei studiere ich aktuell Wirtschaftsinformatik HF an der HSO — denn ich möchte die technische Seite weiter vertiefen. Ich baue gerne Dinge, die wirklich funktionieren: Automatisierungen, klare Interfaces, Systeme, die den Alltag leichter machen.`,
 }
 
 // ─── About Me ─────────────────────────────────────────────────────────────────
@@ -228,10 +229,10 @@ export const aboutItems: AboutItem[] = [
   {
     id: 'interests',
     title: { en: 'Interests', de: 'Interessen' },
-    subtitle: { en: 'What I love outside of work', de: 'Was ich neben der Arbeit liebe' },
+    subtitle: { en: 'What I get up to outside of work', de: 'Was ich neben der Arbeit mache' },
     body: {
-      en: 'Photography, travel, self-hosting technology, and music are my main creative pursuits. I spend a lot of time exploring urban environments with a camera, tinkering with self-hosted services on my homelab, and playing guitar. I try to visit at least two new countries every year — Japan is high on the list.',
-      de: 'Fotografie, Reisen, Self-Hosting und Musik sind meine kreative Beschäftigungen. Ich erkunde urbane Umgebungen mit der Kamera, betreibe ein Homelab mit diversen Self-Hosted-Diensten und spiele Gitarre. Mindestens zwei neue Länder pro Jahr — Japan steht ganz oben auf der Liste.',
+      en: 'Photography, travel, tech and music are the things that keep me busy outside of work. I like exploring cities and landscapes with a camera, tinkering with self-hosted services on my homelab, and playing guitar. I try to visit at least two new countries a year — Japan is definitely on the list.',
+      de: 'Fotografie, Reisen, Technik und Musik sind meine Hauptbeschäftigungen neben der Arbeit. Ich erkunde Städte und Landschaften mit der Kamera, betreibe ein Homelab mit diversen Self-Hosted-Diensten und spiele Gitarre. Mindestens zwei neue Länder pro Jahr — Japan steht definitiv auf der Liste.',
     },
   },
   {
@@ -239,8 +240,8 @@ export const aboutItems: AboutItem[] = [
     title: { en: 'Goals', de: 'Ziele' },
     subtitle: { en: 'Where I am heading', de: 'Wohin ich mich entwickle' },
     body: {
-      en: 'I want to build digital products that are as technically solid as they are beautifully crafted. My focus is bridging the gap between design and engineering — creating systems that not only work well but feel intuitive to use. Long term, I aim to combine automation, AI, and thoughtful UX into products that genuinely improve how people work.',
-      de: 'Ich möchte digitale Produkte entwickeln, die technisch solide und gleichzeitig schön gestaltet sind. Mein Fokus liegt auf der Brücke zwischen Design und Engineering — Systeme schaffen, die gut funktionieren und sich intuitiv anfühlen. Langfristig möchte ich Automatisierung, KI und durchdachte UX in Produkte verbinden, die Arbeitsweisen wirklich verbessern.',
+      en: "I want to build digital products that work well and look the part. My focus is on the space between design and technology — creating things that are solid under the hood but feel natural to use. Long term I'd like to combine automation, AI and good UX into tools that actually change how people work day to day.",
+      de: 'Ich möchte digitale Produkte entwickeln, die gut funktionieren und gut aussehen. Mein Fokus liegt auf dem Bereich zwischen Design und Technologie — Dinge schaffen, die technisch solide sind, sich aber natürlich anfühlen. Langfristig möchte ich Automatisierung, KI und gute UX in Tools verbinden, die den Arbeitsalltag wirklich verändern.',
     },
   },
 ]

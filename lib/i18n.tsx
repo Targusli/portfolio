@@ -34,7 +34,7 @@ const translations = {
     },
     skills: {
       title: 'Competencies',
-      subtitle: 'An overview of languages, tools and skills',
+      subtitle: 'A quick look at my skills, the tools I work with, and the languages I speak.',
       languages: 'Languages',
       tools: 'Skills & Tools',
       skills: 'Skills',
@@ -113,7 +113,7 @@ const translations = {
     },
     skills: {
       title: 'Kompetenzen',
-      subtitle: 'Übersicht über Sprachen, Tools und Skills',
+      subtitle: 'Übersicht meiner Skills, mir bekannten Tools und Sprachen die ich spreche.',
       languages: 'Sprachen',
       tools: 'Skills & Tools',
       skills: 'Skills',

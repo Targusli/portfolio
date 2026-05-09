@@ -32,7 +32,7 @@ function LanguagesView() {
       <div>
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
-            <span className="text-lg font-mono leading-none w-7 text-center">{l.flag}</span>
+            <span className={`font-mono leading-none w-7 text-center ${l.type === 'programming' ? 'text-xs text-outline/70' : 'text-lg'}`}>{l.flag}</span>
             <span className="font-mono text-sm text-on-surface">{l.name}</span>
           </div>
           <div className="flex items-center gap-3">

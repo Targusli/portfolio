@@ -19,7 +19,7 @@ interface NodeDef {
 
 // Irregular radii per node to break the perfect-circle look
 const NODE_DEFS: NodeDef[] = [
-  { id: 'noah',     level: 0, labelEn: 'Noah',          labelDe: 'Noah',          angle: 0,   r: 0,  parentId: null,       modalId: null },
+  { id: 'noah',     level: 0, labelEn: 'Noah',          labelDe: 'Noah',          angle: 0,   r: 0,  parentId: null,       modalId: 'about' },
 
   // ── Level 2 — varied R ──────────────────────────────────────────────────────
   { id: 'about',    level: 2, labelEn: 'About Me',       labelDe: 'Über mich',     angle: 352, r: 34, parentId: 'noah',     modalId: 'about' },
@@ -252,7 +252,7 @@ export default function NodeGraph() {
                 >
                   <span
                     className="font-mono font-semibold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
-                    style={{ fontSize: node.level === 0 ? 14 : LABEL_PX }}
+                    style={{ fontSize: LABEL_PX }}
                   >
                     {lbl}
                   </span>
