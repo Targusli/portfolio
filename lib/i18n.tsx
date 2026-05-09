@@ -17,15 +17,15 @@ const translations = {
       label: 'Deploying',
     },
     nav: {
-      experience: 'Experience',
+      experience: 'Work & Education',
       skills: 'Competencies',
       projects: 'Projects',
       about: 'About Me',
       contact: 'Contact',
     },
     experience: {
-      title: 'Experience',
-      subtitle: 'Professional timeline & academic background',
+      title: 'Work & Education',
+      subtitle: 'Professional experience and academic background',
       filterAll: 'All',
       filterWork: 'Work',
       filterEdu: 'Education',
@@ -96,15 +96,15 @@ const translations = {
       label: 'Deployment läuft',
     },
     nav: {
-      experience: 'Berufserfahrung',
+      experience: 'Berufserfahrung & Ausbildungen',
       skills: 'Kompetenzen',
       projects: 'Arbeiten',
       about: 'Über mich',
       contact: 'Kontakt',
     },
     experience: {
-      title: 'Berufserfahrung',
-      subtitle: 'Beruflicher Werdegang & akademischer Hintergrund',
+      title: 'Berufserfahrung & Ausbildungen',
+      subtitle: 'Beruflicher Werdegang und Ausbildung',
       filterAll: 'Alle',
       filterWork: 'Berufserfahrung',
       filterEdu: 'Ausbildung',
@@ -180,7 +180,7 @@ const LangContext = createContext<LangContextType>({
 })
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLang] = useState<Lang>('en')
+  const [lang, setLang] = useState<Lang>('de')
   return (
     <LangContext.Provider value={{ lang, setLang, t: translations[lang] }}>
       {children}

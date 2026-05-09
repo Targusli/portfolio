@@ -2,10 +2,7 @@
 
 import { useLang } from '@/lib/i18n'
 
-const DOWNLOAD_ITEMS = [
-  { href: '/downloads/cv.pdf',            labelEn: 'CV',                          labelDe: 'Lebenslauf' },
-  { href: '/downloads/zertifikate.pdf',   labelEn: 'Certificates & Education',    labelDe: 'Zertifikate & Ausbildungen' },
-]
+// hrefs resolved inside the component (language-dependent CV)
 
 export default function ContactSection() {
   const { lang } = useLang()
@@ -99,7 +96,16 @@ export default function ContactSection() {
 
       {/* Download buttons */}
       <div className="flex flex-col sm:flex-row gap-3">
-        {DOWNLOAD_ITEMS.map(({ href, labelEn, labelDe }) => (
+        {[
+          {
+            href: lang === 'de' ? '/downloads/lebenslauf_noah_zuppiger_CH.pdf' : '/downloads/lebenslauf_noah_zuppiger_EN.pdf',
+            label: lang === 'de' ? 'Lebenslauf' : 'CV',
+          },
+          {
+            href: '/downloads/zertifikate_noah_zuppiger.pdf',
+            label: lang === 'de' ? 'Zertifikate & Ausbildungen' : 'Certificates & Education',
+          },
+        ].map(({ href, label }) => (
           <a
             key={href}
             href={href}
@@ -107,7 +113,7 @@ export default function ContactSection() {
             className="flex-1 flex items-center justify-center gap-2 font-mono text-xs border border-[#2a2a2a] hover:border-primary/40 text-outline hover:text-primary px-4 py-3 rounded-sm transition-all"
           >
             <span className="material-symbols-outlined" style={{ fontSize: 16 }}>download</span>
-            {lang === 'de' ? labelDe : labelEn}
+            {label}
           </a>
         ))}
       </div>

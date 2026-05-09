@@ -46,6 +46,18 @@ export interface Hobby {
 // ─── Experience ────────────────────────────────────────────────────────────────
 
 export const timelineItems: TimelineItem[] = [
+  // ── Most recent first ──────────────────────────────────────────────────────
+  {
+    id: 'hso',
+    type: 'education',
+    period: '2024 – 2027',
+    title: { en: 'Dipl. Business IT Specialist HF', de: 'Dipl. Wirtschaftsinformatiker HF' },
+    company: { en: 'HSO Wirtschaftsschule Schweiz', de: 'HSO Wirtschaftsschule Schweiz' },
+    description: {
+      en: 'Three-year higher professional education in Business IT, currently in progress. Year one covers business processes, IT foundations, project management and management basics. Year two adds data management, solution engineering and a practical project. Year three wraps up with digital transformation, IT security, IT management and a diploma thesis.',
+      de: 'Dreijährige Ausbildung in Wirtschaftsinformatik, aktuell im Gange. Im ersten Jahr stehen Geschäftsprozesse, IT-Grundlagen, Projektmanagement und Management auf dem Programm. Das zweite Jahr ergänzt Datenmanagement, Solution Engineering und eine Praxisarbeit. Im dritten Jahr folgen digitale Transformation, IT-Sicherheit, IT-Management und die Diplomarbeit.',
+    },
+  },
   {
     id: 'marketing-manager',
     type: 'work',
@@ -53,8 +65,8 @@ export const timelineItems: TimelineItem[] = [
     title: { en: 'Marketing Manager', de: 'Marketing Manager' },
     company: { en: 'Netcom AG', de: 'Netcom AG' },
     description: {
-      en: 'Handling webshop content — keeping it updated and on-brand. Creating mockups, running projects from brief to delivery, evaluating and rolling out new tools and processes. Also covers event and trade show planning, print materials, and internal and external communications.',
-      de: 'Betreuung & Pflege der Inhalte Webshop, Erstellen von Mockups, Abwicklung von Projekten, Evaluieren und Einführen diverser Applikationen & Prozesse, Messen- & Eventplanung, Printmedien, Interne & Externe Kommunikation.',
+      en: 'Handling webshop content and keeping it up to date. Creating mockups, running projects from brief to delivery, evaluating and rolling out new tools and processes. Also covers event and trade show planning, print materials, and internal and external communications.',
+      de: 'Betreuung und Pflege der Webshop-Inhalte, Erstellen von Mockups, Abwicklung von Projekten, Evaluieren und Einführen diverser Applikationen und Prozesse, Messen- und Eventplanung, Printmedien, interne und externe Kommunikation.',
     },
   },
   {
@@ -64,41 +76,30 @@ export const timelineItems: TimelineItem[] = [
     title: { en: 'Mediamatician Apprenticeship (EFZ)', de: 'Lehre zum Mediamatiker EFZ' },
     company: { en: 'Cognizant AG', de: 'Cognizant AG' },
     description: {
-      en: 'Years two and three of the Mediamatician apprenticeship. Rotated across different departments — hands-on work in web, design, project coordination and digital communications.',
+      en: 'Years two and three of the Mediamatician apprenticeship. Worked across different departments with hands-on experience in web, design, project coordination and digital communications.',
       de: 'Zweites und drittes Lehrjahr der Mediamatiker-Ausbildung. Einsatz in verschiedenen Bereichen mit praktischer Erfahrung in Web, Design, Projektkoordination und digitaler Kommunikation.',
-    },
-  },
-  {
-    id: 'basislehrjahr',
-    type: 'work',
-    period: '2018 – 2019',
-    title: { en: 'Base Year — Mediamatician Apprenticeship', de: 'Basislehrjahr — Lehre Mediamatiker EFZ' },
-    company: { en: 'Zürcher Lehrbetriebsverband ICT', de: 'Zürcher Lehrbetriebsverband ICT' },
-    description: {
-      en: 'First year of the Mediamatician apprenticeship at the Zurich ICT training association. Built foundations in IT, design, project management and business processes.',
-      de: 'Erstes Lehrjahr der Mediamatiker-Ausbildung beim Zürcher Lehrbetriebsverband ICT. Grundlagen in IT, Design, Projektmanagement und Geschäftsprozessen.',
-    },
-  },
-  {
-    id: 'hso',
-    type: 'education',
-    period: '2024 – 2027',
-    title: { en: 'Dipl. Business IT Specialist HF', de: 'Dipl. Wirtschaftsinformatiker HF' },
-    company: { en: 'HSO Wirtschaftsschule Schweiz', de: 'HSO Wirtschaftsschule Schweiz' },
-    description: {
-      en: 'Higher professional education in Business IT — currently in progress. Covers systems analysis, software development, business processes and IT project management.',
-      de: 'Höhere Fachschule Wirtschaftsinformatik — aktuell im Gange. Systemanalyse, Softwareentwicklung, Geschäftsprozesse und IT-Projektmanagement.',
     },
   },
   {
     id: 'bzz',
     type: 'education',
     period: '2018 – 2022',
-    title: { en: 'Mediamatician (EFZ)', de: 'Mediamatiker EFZ' },
+    title: { en: 'Mediamatician EFZ', de: 'Mediamatiker EFZ' },
     company: { en: 'Vocational School BZZ Horgen', de: 'Berufsschule BZZ Horgen' },
     description: {
       en: 'Vocational school running alongside the Mediamatician apprenticeship. Core subjects: web technologies, design, communications, business administration and project management.',
       de: 'Berufsschule begleitend zur Mediamatiker-Lehre. Kernfächer: Webtechnologien, Design, Kommunikation, Betriebswirtschaft und Projektmanagement.',
+    },
+  },
+  {
+    id: 'basislehrjahr',
+    type: 'work',
+    period: '2018 – 2019',
+    title: { en: 'Base Year — Mediamatician Apprenticeship', de: 'Basislehrjahr Mediamatiker EFZ' },
+    company: { en: 'Zürcher Lehrbetriebsverband ICT', de: 'Zürcher Lehrbetriebsverband ICT' },
+    description: {
+      en: 'First year of the Mediamatician apprenticeship at the Zurich ICT training association. Foundations in IT, design, project management and business processes.',
+      de: 'Erstes Lehrjahr der Mediamatiker-Ausbildung beim Zürcher Lehrbetriebsverband ICT. Grundlagen in IT, Design, Projektmanagement und Geschäftsprozessen.',
     },
   },
 ]
@@ -110,7 +111,7 @@ export const languages: Language[] = [
   { name: 'English', level: { en: 'Fluent – C1', de: 'Fliessend – C1' }, proficiency: 90, cert: 'Cambridge C1 Advanced', flag: '🇬🇧' },
   { name: 'Français', level: { en: 'Basic – A2', de: 'Grundkenntnisse – A2' }, proficiency: 30, cert: null, flag: '🇫🇷' },
   { name: '日本語',    level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 10, cert: null, flag: '🇯🇵' },
-  { name: 'HTML & CSS', level: { en: 'Intermediate – can read & write', de: 'Mittelstufe – lesen & schreiben' }, proficiency: 50, cert: null, flag: '<>', type: 'programming' },
+  { name: 'HTML & CSS', level: { en: 'Practical experience', de: 'Praxiserfahrung' }, proficiency: 50, cert: null, flag: '<>', type: 'programming' },
   { name: 'Python',     level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'Py', type: 'programming' },
   { name: 'JavaScript', level: { en: 'Beginner – learning', de: 'Anfänger – am Lernen' }, proficiency: 5, cert: null, flag: 'JS', type: 'programming' },
 ]

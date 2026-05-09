@@ -127,9 +127,13 @@ export default function Navbar() {
         <div className="flex items-center gap-4 relative z-10">
           <button
             onClick={() => setLang(lang === 'en' ? 'de' : 'en')}
-            className="font-mono text-sm font-semibold px-3 py-1.5 border border-[#2a2a2a] hover:border-primary/50 text-on-surface-variant hover:text-primary transition-all rounded-sm tracking-widest"
+            className="font-mono text-sm font-semibold px-4 py-2 text-on-surface-variant hover:text-primary transition-all rounded-sm tracking-wide"
+            style={{
+              border: '1px solid rgba(74,127,193,0.35)',
+              boxShadow: '0 0 10px -2px rgba(74,127,193,0.25), inset 0 0 12px -6px rgba(74,127,193,0.10)',
+            }}
           >
-            {lang === 'en' ? 'DE' : 'EN'}
+            {lang === 'en' ? 'Deutsch' : 'English'}
           </button>
 
           <button

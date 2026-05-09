@@ -25,7 +25,7 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'about',    level: 2, labelEn: 'About Me',       labelDe: 'Über mich',     angle: 352, r: 34, parentId: 'noah',     modalId: 'about' },
   { id: 'skills',   level: 2, labelEn: 'Competencies',   labelDe: 'Kompetenzen',   angle: 64,  r: 38, parentId: 'noah',     modalId: 'skills' },
   { id: 'projects', level: 2, labelEn: 'Projects',       labelDe: 'Arbeiten',      angle: 142, r: 30, parentId: 'noah',     modalId: 'projects' },
-  { id: 'exp',      level: 2, labelEn: 'Experience',     labelDe: 'Erfahrung',     angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
+  { id: 'exp',      level: 2, labelEn: 'Work & Edu',      labelDe: 'Berufserfahrung',angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
   { id: 'contact',  level: 2, labelEn: 'Contact',        labelDe: 'Kontakt',       angle: 286, r: 32, parentId: 'noah',     modalId: 'contact' },
 
   // ── Level 3 — Skills ────────────────────────────────────────────────────────
