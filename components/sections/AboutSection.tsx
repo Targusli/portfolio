@@ -94,7 +94,7 @@ function OverviewView() {
             Noah Zuppiger
           </h2>
           <p className="font-mono text-sm text-primary/80">
-            Marketing · Design · IT
+            Marketing · IT · Design
           </p>
           <p className="font-mono text-xs text-outline flex items-center gap-1.5">
             <span className="material-symbols-outlined" style={{ fontSize: 14 }}>location_on</span>

@@ -272,50 +272,131 @@ Was mich sonst so richtig fasziniert, ist das Weltall und alles was damit zusamm
 
 // ─── Skill Categories ─────────────────────────────────────────────────────────
 
-export interface ToolEntry {
-  name: string
-  note?: { en: string; de: string }
-  description: { en: string; de: string }
+export interface SkillEntry {
+  de: string
+  en: string
+}
+
+export interface SkillSection {
+  type: 'tools' | 'skills'
+  practical: SkillEntry[]
+  basic: SkillEntry[]
 }
 
 export interface SkillCategory {
   id: string
   title: { en: string; de: string }
-  tools: ToolEntry[]
+  sections: SkillSection[]
 }
 
 export const skillCategories: SkillCategory[] = [
   {
     id: 'design',
-    title: { en: 'Design', de: 'Design' },
-    tools: [
-      { name: 'Adobe CC',  description: { en: '[Placeholder]', de: '[Platzhalter]' } },
-      { name: 'Adobe XD',  description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    title: { en: 'Design & Creation', de: 'Design & Kreation' },
+    sections: [
+      {
+        type: 'tools',
+        practical: [
+          { de: 'InDesign',      en: 'InDesign' },
+          { de: 'Illustrator',   en: 'Illustrator' },
+          { de: 'Photoshop',     en: 'Photoshop' },
+          { de: 'After Effects', en: 'After Effects' },
+          { de: 'Adobe XD',      en: 'Adobe XD' },
+        ],
+        basic: [],
+      },
+      {
+        type: 'skills',
+        practical: [
+          { de: 'Layout',                   en: 'Layout' },
+          { de: 'Wireframing & Prototyping', en: 'Wireframing & Prototyping' },
+          { de: 'Fotografie',               en: 'Photography' },
+          { de: 'Videoproduktion',          en: 'Video Production' },
+          { de: 'Printproduktion',          en: 'Print Production' },
+        ],
+        basic: [],
+      },
     ],
   },
   {
     id: 'marketing',
-    title: { en: 'Marketing', de: 'Marketing' },
-    tools: [
-      { name: 'LinkedIn', description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    title: { en: 'Marketing & Communication', de: 'Marketing & Kommunikation' },
+    sections: [
+      {
+        type: 'tools',
+        practical: [
+          { de: 'Brevo',         en: 'Brevo' },
+          { de: 'LinkedIn',      en: 'LinkedIn' },
+          { de: 'Microsoft 365', en: 'Microsoft 365' },
+        ],
+        basic: [],
+      },
+      {
+        type: 'skills',
+        practical: [
+          { de: 'Kampagnenmanagement', en: 'Campaign Management' },
+          { de: 'Newsletter',          en: 'Newsletter' },
+          { de: 'Content Strategie',   en: 'Content Strategy' },
+          { de: 'UI/UX Design',        en: 'UI/UX Design' },
+          { de: 'Agenturmanagement',   en: 'Agency Management' },
+        ],
+        basic: [
+          { de: 'SEO', en: 'SEO' },
+        ],
+      },
     ],
   },
   {
-    id: 'automation-it',
-    title: { en: 'Automation & IT', de: 'Automatisierung & IT' },
-    tools: [
-      { name: 'n8n',        description: { en: '[Placeholder]', de: '[Platzhalter]' } },
-      { name: 'VS Code',    description: { en: '[Placeholder]', de: '[Platzhalter]' } },
-      { name: 'HTML / CSS', description: { en: '[Placeholder]', de: '[Platzhalter]' } },
-      { name: 'Python', note: { en: '(currently learning)', de: '(am Lernen)' }, description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    id: 'it',
+    title: { en: 'IT & Systems', de: 'IT & Systeme' },
+    sections: [
+      {
+        type: 'tools',
+        practical: [
+          { de: 'HTML & CSS',  en: 'HTML & CSS' },
+          { de: 'OXID',        en: 'OXID' },
+          { de: 'Jira',        en: 'Jira' },
+          { de: 'Confluence',  en: 'Confluence' },
+        ],
+        basic: [
+          { de: 'Git & GitHub', en: 'Git & GitHub' },
+          { de: 'SQL',          en: 'SQL' },
+        ],
+      },
     ],
   },
   {
-    id: 'other',
-    title: { en: 'Other', de: 'Sonstige' },
-    tools: [
-      { name: 'Stable Diffusion', note: { en: '(Local AI image generation)', de: '(Lokale KI-Bildgenerierung)' }, description: { en: '[Placeholder]', de: '[Platzhalter]' } },
-      { name: 'Diverse LLMs',     description: { en: '[Placeholder]', de: '[Platzhalter]' } },
+    id: 'automation',
+    title: { en: 'Automation & AI', de: 'Automatisierung & AI' },
+    sections: [
+      {
+        type: 'tools',
+        practical: [
+          { de: 'n8n',              en: 'n8n' },
+          { de: 'Stable Diffusion', en: 'Stable Diffusion' },
+          { de: 'LLMs',             en: 'LLMs' },
+        ],
+        basic: [],
+      },
+    ],
+  },
+  {
+    id: 'management',
+    title: { en: 'Management & Processes', de: 'Management & Prozesse' },
+    sections: [
+      {
+        type: 'skills',
+        practical: [
+          { de: 'Projektmanagement',       en: 'Project Management' },
+          { de: 'Prozessmodellierung',     en: 'Process Modelling' },
+          { de: 'Eventorganisation',       en: 'Event Organisation' },
+          { de: 'Technische Dokumentation',en: 'Technical Documentation' },
+          { de: 'Gantt-Diagramm',          en: 'Gantt Chart' },
+        ],
+        basic: [
+          { de: 'Scrum & Kanban', en: 'Scrum & Kanban' },
+        ],
+      },
     ],
   },
 ]

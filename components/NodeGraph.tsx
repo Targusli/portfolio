@@ -25,7 +25,7 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'about',    level: 2, labelEn: 'About Me',       labelDe: 'Über mich',     angle: 352, r: 34, parentId: 'noah',     modalId: 'about' },
   { id: 'skills',   level: 2, labelEn: 'Competencies',   labelDe: 'Kompetenzen',   angle: 64,  r: 38, parentId: 'noah',     modalId: 'skills' },
   { id: 'projects', level: 2, labelEn: 'Projects',       labelDe: 'Arbeiten',      angle: 142, r: 30, parentId: 'noah',     modalId: 'projects' },
-  { id: 'exp',      level: 2, labelEn: 'Work & Edu',      labelDe: 'Berufserfahrung',angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
+  { id: 'exp',      level: 2, labelEn: 'Career',           labelDe: 'Werdegang',      angle: 218, r: 36, parentId: 'noah',     modalId: 'experience' },
   { id: 'contact',  level: 2, labelEn: 'Contact',        labelDe: 'Kontakt',       angle: 286, r: 32, parentId: 'noah',     modalId: 'contact' },
 
   // ── Level 3 — Skills ────────────────────────────────────────────────────────
@@ -212,8 +212,12 @@ export default function NodeGraph() {
           const del = ((h % 100) / 100) * dur
           const sz  = node.level === 0 ? CENTER_SIZE : NODE_SIZE
           const lbl = lang === 'de' ? node.labelDe : node.labelEn
-          const isLinkedIn    = !!node.href
-          const isExperience  = node.id === 'exp' || node.parentId === 'exp'
+          const isLinkedIn = !!node.href
+          const isGreen    = node.id === 'exp-work'
+          const isOrange   = !isGreen && (
+            ['exp', 'skills', 'projects'].includes(node.id) ||
+            ['exp', 'skills', 'projects'].includes(node.parentId ?? '')
+          )
 
           return (
             <div
@@ -236,10 +240,14 @@ export default function NodeGraph() {
                   style={{
                     background: isLinkedIn
                       ? `radial-gradient(circle at center, rgba(10,102,194,0.90) 0%, rgba(10,102,194,0.44) 32%, rgba(10,102,194,0.12) 64%, transparent 100%)`
-                      : isExperience
+                      : isGreen
+                      ? `radial-gradient(circle at center, rgba(61,155,106,0.78) 0%, rgba(61,155,106,0.38) 32%, rgba(61,155,106,0.10) 64%, transparent 100%)`
+                      : isOrange
                       ? `radial-gradient(circle at center, rgba(245,158,11,0.78) 0%, rgba(245,158,11,0.38) 32%, rgba(245,158,11,0.10) 64%, transparent 100%)`
                       : `radial-gradient(circle at center, rgba(74,127,193,0.88) 0%, rgba(74,127,193,0.44) 32%, rgba(74,127,193,0.12) 64%, transparent 100%)`,
-                    boxShadow: isExperience
+                    boxShadow: isGreen
+                      ? `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(61,155,106,0.20)`
+                      : isOrange
                       ? `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(245,158,11,0.20)`
                       : `0 0 ${sz * 0.6}px ${sz * 0.14}px rgba(74,127,193,0.22)`,
                   }}

@@ -40,17 +40,6 @@ function ProjectDetail({ projectId }: { projectId: string }) {
         ))}
       </div>
 
-      {project.href && !project.pending && (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 font-mono text-sm text-primary hover:text-primary/80 transition-colors border border-primary/30 hover:border-primary/60 px-4 py-2 rounded-sm"
-        >
-          {t.projects.viewProject}
-          <span className="material-symbols-outlined" style={{ fontSize: 16 }}>arrow_outward</span>
-        </a>
-      )}
     </div>
   )
 }

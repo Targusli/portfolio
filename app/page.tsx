@@ -28,8 +28,8 @@ function MobileOverview() {
 
   return (
     <div className="flex flex-col px-4 py-6 gap-4">
-      <p className="text-center font-mono text-sm text-outline py-2">
-        Marketing · Design · IT — Zürich
+      <p className="text-center font-mono text-xs text-outline/60 py-2 leading-relaxed">
+        Für das beste Erlebnis auf dem Desktop öffnen.<br />Best viewed on Desktop.
       </p>
       <div className="grid grid-cols-2 gap-4">
         {cards.map(({ id, label }) => (

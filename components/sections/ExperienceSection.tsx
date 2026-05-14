@@ -96,14 +96,14 @@ export default function ExperienceSection() {
               <div
                 className={`absolute -left-8 top-1.5 w-3.5 h-3.5 rounded-full border-2 ${
                   item.type === 'work'
-                    ? 'bg-primary/30 border-primary/70'
+                    ? 'bg-[#3d9b6a]/30 border-[#3d9b6a]/70'
                     : 'bg-tertiary/30 border-tertiary/70'
                 }`}
                 style={{ marginLeft: -7 + 8 - 7 }}
               />
               <div
                 className={`absolute border-l-2 pl-0 ${
-                  item.type === 'work' ? 'border-primary/20' : 'border-tertiary/20'
+                  item.type === 'work' ? 'border-[#3d9b6a]/20' : 'border-tertiary/20'
                 }`}
                 style={{ left: -16, top: 0, bottom: 0 }}
               />
@@ -114,7 +114,7 @@ export default function ExperienceSection() {
                   <span
                     className={`font-mono text-[10px] px-2 py-0.5 rounded-sm ${
                       item.type === 'work'
-                        ? 'bg-primary/10 text-primary/80'
+                        ? 'bg-[#3d9b6a]/10 text-[#3d9b6a]/90'
                         : 'bg-tertiary/10 text-tertiary/80'
                     }`}
                   >
