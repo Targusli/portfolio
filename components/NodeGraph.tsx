@@ -33,12 +33,12 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'skills-tools',     level: 3, labelEn: 'Skills & Tools', labelDe: 'Skills & Tools', angle: 78, r: 62, parentId: 'skills', modalId: 'skills-tools' },
 
   // ── Level 3 — Projects ──────────────────────────────────────────────────────
-  { id: 'project-trading',   level: 3, labelEn: 'Trading',     labelDe: 'Trading',   angle: 108, r: 52, parentId: 'projects', modalId: 'project-trading' },
-  { id: 'project-potential', level: 3, labelEn: 'Analysis',    labelDe: 'Potenzial', angle: 122, r: 56, parentId: 'projects', modalId: 'project-potential' },
-  { id: 'project-dam',       level: 3, labelEn: 'DAM',         labelDe: 'DAM',       angle: 134, r: 50, parentId: 'projects', modalId: 'project-dam' },
-  { id: 'project-portfolio', level: 3, labelEn: 'Portfolio',   labelDe: 'Portfolio', angle: 148, r: 56, parentId: 'projects', modalId: 'project-portfolio' },
-  { id: 'project-shorts',    level: 3, labelEn: 'Shorts',      labelDe: 'Shorts',    angle: 161, r: 52, parentId: 'projects', modalId: 'project-shorts' },
-  { id: 'project-pending',   level: 3, labelEn: 'In Progress', labelDe: 'In Progress', angle: 174, r: 50, parentId: 'projects', modalId: 'project-pending' },
+  { id: 'project-trading',   level: 3, labelEn: 'AI Trading Pipeline',         labelDe: 'AI Trading Pipeline',         angle: 108, r: 52, parentId: 'projects', modalId: 'project-trading' },
+  { id: 'project-potential', level: 3, labelEn: 'Analysis ERP & Shop',          labelDe: 'Potenzialanalyse ERP & Shop', angle: 122, r: 56, parentId: 'projects', modalId: 'project-potential' },
+  { id: 'project-dam',       level: 3, labelEn: 'Implementing Cloud Solution',  labelDe: 'Einführung Cloud Lösung',     angle: 134, r: 50, parentId: 'projects', modalId: 'project-dam' },
+  { id: 'project-portfolio', level: 3, labelEn: 'Portfolio',                    labelDe: 'Portfolio',                   angle: 148, r: 56, parentId: 'projects', modalId: 'project-portfolio' },
+  { id: 'project-shorts',    level: 3, labelEn: 'Automated Shorts Pipeline',    labelDe: 'Automated Shorts Pipeline',   angle: 161, r: 52, parentId: 'projects', modalId: 'project-shorts' },
+  { id: 'project-pending',   level: 3, labelEn: 'In Progress',                  labelDe: 'In Progress',                 angle: 174, r: 50, parentId: 'projects', modalId: 'project-pending' },
 
   // ── Level 3 — About Me ──────────────────────────────────────────────────────
   { id: 'about-interests', level: 3, labelEn: 'Interests', labelDe: 'Interessen', angle: 343, r: 58, parentId: 'about', modalId: 'about-interests' },
@@ -47,7 +47,7 @@ const NODE_DEFS: NodeDef[] = [
   // ── Level 3 — Experience ────────────────────────────────────────────────────
   { id: 'exp-work',    level: 3, labelEn: 'Work',      labelDe: 'Berufserfahrung', angle: 200, r: 52, parentId: 'exp', modalId: 'experience-work' },
   { id: 'exp-edu',     level: 3, labelEn: 'Education', labelDe: 'Ausbildung',      angle: 236, r: 52, parentId: 'exp', modalId: 'experience-education' },
-  { id: 'exp-zeugnis', level: 3, labelEn: 'Reference', labelDe: 'Zeugnis',         angle: 254, r: 56, parentId: 'exp', modalId: null, href: '/downloads/arbeitszeugnis_noah_zuppiger.pdf' },
+  { id: 'exp-zeugnis', level: 3, labelEn: 'Work Reference', labelDe: 'Arbeitszeugnis', angle: 254, r: 56, parentId: 'exp', modalId: null, href: '/downloads/arbeitszeugnis_noah_zuppiger.pdf' },
 
   // ── Level 3 — Contact ───────────────────────────────────────────────────────
   { id: 'linkedin', level: 3, labelEn: 'LinkedIn', labelDe: 'LinkedIn', angle: 304, r: 52, parentId: 'contact', modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
@@ -258,8 +258,8 @@ export default function NodeGraph() {
 
                 {/* Label below every node */}
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none text-center"
-                  style={{ top: sz + 10 }}
+                  className="absolute left-1/2 -translate-x-1/2 pointer-events-none text-center"
+                  style={{ top: sz + 10, width: 130 }}
                 >
                   <span
                     className="font-mono font-semibold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]"
