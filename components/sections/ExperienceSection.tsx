@@ -48,6 +48,10 @@ export default function ExperienceSection() {
             href: '/downloads/zertifikate_noah_zuppiger.pdf',
             label: lang === 'de' ? 'Zertifikate & Ausbildungen' : 'Certificates & Education',
           },
+          {
+            href: '/downloads/arbeitszeugnis_noah_zuppiger.pdf',
+            label: lang === 'de' ? 'Arbeitszeugnis' : 'Work Reference',
+          },
         ].map(({ href, label }) => (
           <a
             key={label}

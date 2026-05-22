@@ -77,7 +77,8 @@ export default function Home() {
     if (activeModal === 'projects')   return t.projects.title
     if (activeModal.startsWith('project-')) {
       const id = activeModal.replace('project-', '')
-      return projects.find((p) => p.id === id)?.title ?? ''
+      const p = projects.find((pr) => pr.id === id)
+      return p ? (lang === 'de' ? p.title.de : p.title.en) : ''
     }
     if (activeModal === 'about') return t.about.title
     if (activeModal.startsWith('about-')) {

@@ -94,8 +94,8 @@ export default function ContactSection() {
         <div className="h-px flex-1 bg-[#1e1e1e]" />
       </div>
 
-      {/* Download buttons */}
-      <div className="flex flex-col sm:flex-row gap-3">
+      {/* Download buttons — CV + Certificates */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-3">
         {[
           {
             href: lang === 'de' ? '/downloads/lebenslauf_noah_zuppiger_CH.pdf' : '/downloads/lebenslauf_noah_zuppiger_EN.pdf',
@@ -117,6 +117,16 @@ export default function ContactSection() {
           </a>
         ))}
       </div>
+
+      {/* Arbeitszeugnis — full width */}
+      <a
+        href="/downloads/arbeitszeugnis_noah_zuppiger.pdf"
+        download
+        className="flex items-center justify-center gap-2 font-mono text-xs border border-[#2a2a2a] hover:border-primary/40 text-outline hover:text-primary px-4 py-3 rounded-sm transition-all w-full"
+      >
+        <span className="material-symbols-outlined" style={{ fontSize: 16 }}>download</span>
+        {lang === 'de' ? 'Arbeitszeugnis' : 'Work Reference'}
+      </a>
 
       {/* References */}
       <div className="mt-8 pt-6 border-t border-[#1e1e1e]">

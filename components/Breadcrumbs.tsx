@@ -15,7 +15,8 @@ function resolveLabel(id: string, lang: 'en' | 'de', t: Translations): string {
   if (id === 'projects')             return t.projects.title
   if (id.startsWith('project-')) {
     const pid = id.replace('project-', '')
-    return projects.find((p) => p.id === pid)?.title ?? id
+    const p = projects.find((pr) => pr.id === pid)
+    return p ? (lang === 'de' ? p.title.de : p.title.en) : id
   }
   if (id === 'about')                return t.about.title
   if (id.startsWith('about-')) {

@@ -13,7 +13,7 @@ export interface Project {
   id: string
   index: string
   category: { en: string; de: string }
-  title: string
+  title: { en: string; de: string }
   description: { en: string; de: string }
   tags: string[]
   href: string | null
@@ -153,54 +153,95 @@ export const skills: SkillItem[] = [
 
 export const projects: Project[] = [
   {
-    id: 'n8n',
+    id: 'trading',
     index: '01',
     category: { en: 'Automation', de: 'Automatisierung' },
-    title: 'n8n Workflow Automation',
-    description: {
-      en: 'Built an automation setup using n8n to sync data between different tools and platforms — cutting down on manual work and keeping everything running without needing to touch it daily.',
-      de: 'Automatisierungssetup mit n8n aufgebaut, das Daten zwischen verschiedenen Tools und Plattformen synchronisiert — weniger manuelle Arbeit, mehr Zuverlässigkeit.',
+    title: {
+      en: 'AI-powered Trading Automation System',
+      de: 'KI-gestütztes Trading-Automationssystem',
     },
-    tags: ['n8n', 'API', 'Automation'],
-    href: '#',
+    description: {
+      en: `A fully automated system for analysing financial and market data and generating structured trading decisions in a simulated environment. The solution combines n8n as the automation backbone with Claude as the AI decision layer and runs fully containerised via Docker and WSL2. Three times a day, the system evaluates price data, technical indicators, market sentiment, and financial news; a stop-loss monitor continuously tracks risk. Weekly performance is analysed automatically and the strategy is adjusted based on the results.\n\nStatus: Paper trading since April 2026.`,
+      de: `Ein vollautomatisches System zur Analyse von Finanz- und Marktdaten, das strukturierte Handelsentscheide in einer simulierten Umgebung trifft. Die Lösung kombiniert n8n als Automatisierungs-Backbone mit Claude als KI-Entscheidungsschicht und läuft vollständig containerisiert via Docker und WSL2. Dreimal täglich werden Kursdaten, technische Indikatoren, Marktstimmung und Finanznachrichten ausgewertet; zusätzlich überwacht ein Stop-Loss-Monitor laufend das Risiko. Die Wochenperformance wird automatisch analysiert und die Strategie auf Basis der Resultate angepasst.\n\nStatus: Paper Trading seit April 2026.`,
+    },
+    tags: ['n8n', 'LLMs', 'Claude API', 'Docker', 'WSL2'],
+    href: null,
     pending: false,
   },
   {
-    id: 'web',
+    id: 'potential',
     index: '02',
-    category: { en: 'Web', de: 'Web' },
-    title: 'Website Redesign',
-    description: {
-      en: 'Redesigned and rebuilt a company website from the ground up — turned mockups into a clean, fast Next.js and Tailwind setup that is easy to maintain and looks the part.',
-      de: 'Unternehmens-Website von Grund auf neu designed und umgesetzt — aus Mockups wurde ein sauberes, schnelles Next.js- und Tailwind-Setup, das einfach zu pflegen ist.',
+    category: { en: 'Analysis', de: 'Analyse' },
+    title: {
+      en: 'Potential Analysis: Shop & ERP Centralisation',
+      de: 'Potenzialanalyse für Shop- und ERP-Zentralisierung',
     },
-    tags: ['Next.js', 'Tailwind', 'TypeScript'],
-    href: '#',
+    description: {
+      en: `For an SME in the telecommunications sector, I analysed a complex system landscape with multiple ERP and e-commerce platforms across the DACH region. The goal was to identify weaknesses in the existing data and process structure and develop concrete solution scenarios. Evaluation was based on weighted scoring and cost-benefit analysis, with a focus on data quality, scalability, and operational efficiency. As a result, I recommended the introduction of a central PIM system to reduce redundant data maintenance and standardise product data.\n\nResult: Decision-making basis for management.`,
+      de: `Für ein KMU in der Telekommunikationsbranche analysierte ich eine komplexe Systemlandschaft mit mehreren ERP- und E-Commerce-Plattformen in der DACH-Region. Ziel war es, Schwachstellen in der bestehenden Daten- und Prozessstruktur zu identifizieren und konkrete Lösungsszenarien zu entwickeln. Die Bewertung erfolgte mittels Nutzwert- und Kosten-Nutzen-Analyse, mit Fokus auf Datenqualität, Skalierbarkeit und operative Effizienz. Als Ergebnis empfahl ich die Einführung eines zentralen PIM-Systems zur Reduktion redundanter Datenpflege und zur Standardisierung der Produktdaten.\n\nResultat: Entscheidungsgrundlage für die Geschäftsleitung.`,
+    },
+    tags: ['Requirements Engineering', 'ERP', 'E-Commerce', 'System Analysis', 'Process Management', 'Utility Analysis'],
+    href: null,
     pending: false,
   },
   {
-    id: 'ai',
+    id: 'dam',
     index: '03',
-    category: { en: 'AI', de: 'AI' },
-    title: 'AI Image Pipeline',
-    description: {
-      en: 'Set up a local Stable Diffusion pipeline to generate and process images in bulk — handy for producing marketing visuals without relying on stock photos or paid services.',
-      de: 'Lokale Stable-Diffusion-Pipeline aufgesetzt, um Bilder in grösserem Umfang zu generieren — praktisch für Marketing-Visuals ohne Stockfotos oder externe Dienste.',
+    category: { en: 'Analysis', de: 'Analyse' },
+    title: {
+      en: 'Implementation of a Cloud-based Digital Asset Management System',
+      de: 'Einführung eines Cloud-basierten Digital Asset Management Systems',
     },
-    tags: ['Stable Diffusion', 'Python', 'AI'],
-    href: '#',
+    description: {
+      en: `For an SME in the telecommunications sector, I analysed and evaluated a cloud-based DAM solution for the structured management of media assets. The starting point was unstructured files, duplicate storage, unclear access rights, and high manual search effort. Based on the problem-solving cycle, I defined requirements and systematically compared four cloud solutions. The recommended solution was presented internally and subsequently implemented.\n\nStatus: Analysis, recommendation, and implementation as part of my studies.`,
+      de: `Für ein KMU in der Telekommunikationsbranche analysierte und evaluierte ich eine Cloud-basierte DAM-Lösung zur strukturierten Verwaltung von Mediendaten. Ausgangslage waren unstrukturierte Dateien, doppelte Ablagen, unklare Zugriffsrechte und hoher manueller Suchaufwand. Auf Basis des Problemlösezyklus definierte ich Anforderungen und verglich vier Cloud-Lösungen systematisch miteinander. Die empfohlene Lösung wurde intern präsentiert und anschliessend eingeführt.\n\nStatus: Analyse, Empfehlung und Einführung in der Firma.`,
+    },
+    tags: ['DAM', 'Cloud', 'System Analysis', 'Requirements Management', 'Software Evaluation', 'Technical Documentation'],
+    href: null,
+    pending: false,
+  },
+  {
+    id: 'portfolio',
+    index: '04',
+    category: { en: 'Web', de: 'Web' },
+    title: {
+      en: 'Personal Portfolio — Design, Development & Deployment',
+      de: 'Persönliches Portfolio — Design, Entwicklung & Deployment',
+    },
+    description: {
+      en: `Conception, design, and development of my personal portfolio website from scratch. The visual concept was created in Google Stitch as an interactive mockup and refined iteratively. Technical implementation was completed with Next.js and Tailwind CSS, supported by Claude Code as an AI-assisted development tool. The code is publicly available on GitHub and automatically deployed via Vercel. The centrepiece of the site is an interactive node graph on the landing page, presenting content as a connected knowledge system.\n\nStatus: Live at noahzuppiger.com`,
+      de: `Konzeption, Design und Entwicklung meiner persönlichen Portfolio-Website von Grund auf. Das visuelle Konzept wurde in Google Stitch als interaktives Mockup entwickelt und iterativ verfeinert. Die technische Umsetzung erfolgte mit Next.js und Tailwind CSS, unterstützt durch Claude Code als AI-gestütztes Entwicklungswerkzeug. Der Code ist öffentlich auf GitHub verfügbar und wird über Vercel automatisch deployed. Das zentrale Element der Seite ist ein interaktiver Node-Graph auf der Landingpage, der Inhalte als vernetztes Wissenssystem darstellt.\n\nStatus: Live unter noahzuppiger.com`,
+    },
+    tags: ['Next.js', 'Git & GitHub', 'Vercel', 'UI/UX Design', 'Claude Code', 'Google Stitch'],
+    href: null,
+    pending: false,
+  },
+  {
+    id: 'shorts',
+    index: '05',
+    category: { en: 'Automation', de: 'Automatisierung' },
+    title: {
+      en: 'Automated YouTube Shorts Pipeline',
+      de: 'Automatisierte YouTube Shorts Pipeline',
+    },
+    description: {
+      en: `A fully automated content channel that generates, renders, and uploads three YouTube Shorts per day without any manual intervention. The pipeline consists of three interconnected n8n workflows. Each day, current Reddit posts from eight subreddits are used as style references to generate fully original fictional stories. These are narrated via text-to-speech, automatically captioned, rendered over a gameplay loop, and uploaded directly to YouTube. The entire infrastructure runs locally on a dedicated mini-server via Docker and WSL2.\n\nStatus: Active for several weeks, around 90 videos per month, manual effort after setup: zero.`,
+      de: `Ein vollautomatischer Content-Kanal, der täglich drei YouTube Shorts generiert, rendert und hochlädt, ohne manuellen Eingriff. Die Pipeline besteht aus drei miteinander verbundenen n8n-Workflows. Täglich werden aktuelle Reddit-Posts aus acht Subreddits als Stilreferenz genutzt, um daraus vollständig eigene fiktionale Storys zu generieren. Diese werden per Text-to-Speech vertont, automatisch mit Captions versehen, über einem Gameplay-Loop gerendert und direkt auf YouTube hochgeladen. Die gesamte Infrastruktur läuft lokal auf einem eigenen Mini-Server via Docker und WSL2.\n\nStatus: Aktiv seit mehreren Wochen, rund 90 Videos pro Monat, manueller Aufwand nach dem Setup: null.`,
+    },
+    tags: ['n8n', 'LLMs', 'Claude API', 'Python', 'Docker', 'WSL2', 'YouTube API'],
+    href: null,
     pending: false,
   },
   {
     id: 'pending',
-    index: '04',
+    index: '06',
     category: { en: 'Pending', de: 'Ausstehend' },
-    title: '[In Progress]',
+    title: { en: 'In Progress', de: 'In Progress' },
     description: {
       en: 'Next project in the works — details coming soon.',
       de: 'Nächstes Projekt in Arbeit — Details folgen.',
     },
-    tags: ['TBD'],
+    tags: [],
     href: null,
     pending: true,
   },

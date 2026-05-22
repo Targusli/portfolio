@@ -33,18 +33,21 @@ const NODE_DEFS: NodeDef[] = [
   { id: 'skills-tools',     level: 3, labelEn: 'Skills & Tools', labelDe: 'Skills & Tools', angle: 78, r: 62, parentId: 'skills', modalId: 'skills-tools' },
 
   // ── Level 3 — Projects ──────────────────────────────────────────────────────
-  { id: 'project-n8n',     level: 3, labelEn: 'n8n',     labelDe: 'n8n',     angle: 120, r: 52, parentId: 'projects', modalId: 'project-n8n' },
-  { id: 'project-web',     level: 3, labelEn: 'Web',     labelDe: 'Web',     angle: 134, r: 58, parentId: 'projects', modalId: 'project-web' },
-  { id: 'project-ai',      level: 3, labelEn: 'AI',      labelDe: 'AI',      angle: 150, r: 50, parentId: 'projects', modalId: 'project-ai' },
-  { id: 'project-pending', level: 3, labelEn: '···',     labelDe: '···',     angle: 165, r: 56, parentId: 'projects', modalId: 'project-pending' },
+  { id: 'project-trading',   level: 3, labelEn: 'Trading',     labelDe: 'Trading',   angle: 108, r: 52, parentId: 'projects', modalId: 'project-trading' },
+  { id: 'project-potential', level: 3, labelEn: 'Analysis',    labelDe: 'Potenzial', angle: 122, r: 56, parentId: 'projects', modalId: 'project-potential' },
+  { id: 'project-dam',       level: 3, labelEn: 'DAM',         labelDe: 'DAM',       angle: 134, r: 50, parentId: 'projects', modalId: 'project-dam' },
+  { id: 'project-portfolio', level: 3, labelEn: 'Portfolio',   labelDe: 'Portfolio', angle: 148, r: 56, parentId: 'projects', modalId: 'project-portfolio' },
+  { id: 'project-shorts',    level: 3, labelEn: 'Shorts',      labelDe: 'Shorts',    angle: 161, r: 52, parentId: 'projects', modalId: 'project-shorts' },
+  { id: 'project-pending',   level: 3, labelEn: 'In Progress', labelDe: 'In Progress', angle: 174, r: 50, parentId: 'projects', modalId: 'project-pending' },
 
   // ── Level 3 — About Me ──────────────────────────────────────────────────────
   { id: 'about-interests', level: 3, labelEn: 'Interests', labelDe: 'Interessen', angle: 343, r: 58, parentId: 'about', modalId: 'about-interests' },
   { id: 'about-goals',     level: 3, labelEn: 'Goals',     labelDe: 'Ziele',      angle: 1,   r: 60, parentId: 'about', modalId: 'about-goals' },
 
   // ── Level 3 — Experience ────────────────────────────────────────────────────
-  { id: 'exp-work', level: 3, labelEn: 'Work',      labelDe: 'Berufserfahrung', angle: 200, r: 52, parentId: 'exp', modalId: 'experience-work' },
-  { id: 'exp-edu',  level: 3, labelEn: 'Education', labelDe: 'Ausbildung',      angle: 236, r: 52, parentId: 'exp', modalId: 'experience-education' },
+  { id: 'exp-work',    level: 3, labelEn: 'Work',      labelDe: 'Berufserfahrung', angle: 200, r: 52, parentId: 'exp', modalId: 'experience-work' },
+  { id: 'exp-edu',     level: 3, labelEn: 'Education', labelDe: 'Ausbildung',      angle: 236, r: 52, parentId: 'exp', modalId: 'experience-education' },
+  { id: 'exp-zeugnis', level: 3, labelEn: 'Reference', labelDe: 'Zeugnis',         angle: 254, r: 56, parentId: 'exp', modalId: null, href: '/downloads/arbeitszeugnis_noah_zuppiger.pdf' },
 
   // ── Level 3 — Contact ───────────────────────────────────────────────────────
   { id: 'linkedin', level: 3, labelEn: 'LinkedIn', labelDe: 'LinkedIn', angle: 304, r: 52, parentId: 'contact', modalId: null, href: 'https://www.linkedin.com/in/noah-zuppiger/' },
@@ -213,7 +216,7 @@ export default function NodeGraph() {
           const sz  = node.level === 0 ? CENTER_SIZE : NODE_SIZE
           const lbl = lang === 'de' ? node.labelDe : node.labelEn
           const isLinkedIn = !!node.href
-          const isGreen    = node.id === 'exp-work'
+          const isGreen    = node.id === 'exp-work' || node.id === 'exp-zeugnis' || node.id === 'project-pending'
           const isOrange   = !isGreen && (
             ['exp', 'skills', 'projects'].includes(node.id) ||
             ['exp', 'skills', 'projects'].includes(node.parentId ?? '')

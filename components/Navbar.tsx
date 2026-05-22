@@ -44,10 +44,12 @@ export default function Navbar() {
       { id: 'tools',     label: 'Skills & Tools',                            action: () => { replaceStack(['skills', 'skills-tools']); close() } },
     ],
     projects: [
-      { id: 'n8n',     label: 'n8n',  action: () => { replaceStack(['projects', 'project-n8n']); close() } },
-      { id: 'web',     label: 'Web',  action: () => { replaceStack(['projects', 'project-web']); close() } },
-      { id: 'ai',      label: 'AI',   action: () => { replaceStack(['projects', 'project-ai']); close() } },
-      { id: 'pending', label: '···',  action: () => { replaceStack(['projects', 'project-pending']); close() } },
+      { id: 'trading',   label: 'Trading',                                        action: () => { replaceStack(['projects', 'project-trading']); close() } },
+      { id: 'potential', label: lang === 'de' ? 'Potenzial' : 'Analysis',        action: () => { replaceStack(['projects', 'project-potential']); close() } },
+      { id: 'dam',       label: 'DAM',                                            action: () => { replaceStack(['projects', 'project-dam']); close() } },
+      { id: 'portfolio', label: 'Portfolio',                                      action: () => { replaceStack(['projects', 'project-portfolio']); close() } },
+      { id: 'shorts',    label: 'Shorts',                                         action: () => { replaceStack(['projects', 'project-shorts']); close() } },
+      { id: 'pending',   label: 'In Progress',                                    action: () => { replaceStack(['projects', 'project-pending']); close() } },
     ],
     contact: [],
   }
@@ -107,7 +109,7 @@ export default function Navbar() {
                     onMouseEnter={() => openDrop(id)}
                     onMouseLeave={scheduleDrop}
                   >
-                    {subs.slice(0, 4).map((sub) => (
+                    {subs.slice(0, 6).map((sub) => (
                       <button
                         key={sub.id}
                         onClick={sub.action}
@@ -163,7 +165,7 @@ export default function Navbar() {
                 </button>
                 {subs.length > 0 && (
                   <div className="pl-4 pb-1 flex flex-col">
-                    {subs.slice(0, 4).map((sub) => (
+                    {subs.slice(0, 6).map((sub) => (
                       <button
                         key={sub.id}
                         onClick={sub.action}
